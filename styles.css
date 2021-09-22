@@ -1,0 +1,112 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    color: rgb(20, 18, 18);
+    border: none;
+}
+
+body{
+    background-image: url('../img/MOOC.png');
+    background-size: cover;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+a, label{
+    font-size: .8rem;
+}
+
+a:hover{
+    color: blueviolet;
+}
+
+/* container login */
+
+#login-container {
+    background-color: ivory;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    margin-top: 12vh;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* formulário */
+
+form{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+label, input{
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+label{
+    font-weight: bold;
+}
+
+input{
+    border-bottom: 2px solid rgb(117, 116, 116);
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+input:focus{
+    border-bottom: 2px solid rgb(26, 26, 180);
+}
+
+#forgot-pass-w{
+    text-align: right;
+    display: block;
+}
+
+input[type="submit"]{
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    margin-top: 30px;
+    color: rgb(8, 8, 8);
+    background-color: rgb(29, 29, 184);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: rgb(112, 112, 223);
+    transition: .5s;
+}
+
+/* redes sociais */
+
+#social-container, #social-container p{
+    margin-bottom: 20px;
+}
+
+#social-container i{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    color: rgb(143, 129, 129);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* registrar */
+
+#register-container p{
+    margin-bottom: 10px;
+}
