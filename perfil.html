@@ -1,110 +1,108 @@
-<!DOCTYPE html>
+<! DOCTYPE html >
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS compilado e reduzido-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- JavaScript compilado e reduzido-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- Importar fonte do ícone do Google-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css">
-    <link rel="stylesheet" href="estilo.css">
-    <title>Port+ </title>
-
+<meta charset="UTF-8">
+<!--CSS compilado e reduzido -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css ">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons "
+  rel="stylesheet">
+<link rel="stylesheet" href="estilo.css ">
+<title>Criar curso</title>
 </head>
-
 <body>
-    <div class="container">
-        <div class="main">
-            <div class="topbar"> 
-                <a href="">Sair</a>
-                <a href="">Suport</a>
-                <a href="">Cursos</a>
-                <a href="">Port+</a>
-            </div>
-            <div class="row">
-                <div class="col s4">
-                    <div class="card text-center sidebar">
-                        <div class="card-body">
-                            <img src="imagens/usuario.png" class="rounded-cicle" width="150">
-                            <div class="mt-3">
-                                <h3>Burk Macklin</h3>
-                                <a href="">Menu</a>
-                                <a href="">Notificações</a>
-                                <a href="">Correção de Redações</a>
-                                <a href="">Meus Cursos</a>
-                                <a href="">Sair</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 mt-1">
-                    <div class="card mb-3 content">
-                        <h1 class="m-3 pt-3">Perfil do aluno</h1>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Nome completo:</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    Burt Macklin
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Email:</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    abc@gmail.com
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <h5>Data de Nascimento:</h5>
-                                </div>
-                                <div class="col-md-9 text-secondary">
-                                    22/09/20002
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mb-3 content">
-                    <h1 class="m-3">Meus cursos</h1>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h5>Cursos</h5>
-                            </div>
-                            <div class="col-md-9 text-secondary">
-                                Descrição dos curso
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card  mb-3 content">
-                    <h1 class="m-3">Certificados</h1>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <h5>Certificados</h5>
-                            </div>
-                            <div class="col-md-9 text-secondary">
-                                Descrição 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+	<div>
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+			<li>
+				<div class ="brand-logo">
+					<h4 class="white-text">PORT+</h4>
+				</div>
+				<div class="user-view">
+				<!--adicionar link-->
+					<div class="col s12 m8 offset-m2 l6 offset-l3">
+						<div class="card-panel blue accent-2">
+								<div class="row valign-wrapper">
+									<div class="col s4">
+										<img src="imagens/feminino2.png"class="circle">
+									</div>
+									<div class="col s10">
+										<span class ="white-text"><strong>Nome de usuário</strong></span>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			</li>
+			<Li><a href="/"><i class="material-icons">home</i>Menu</a></li>
+			<Li><a href="/"><i class="material-icons">notifications</i>Notificações</a></li>
+			<Li><a href="/"><i class="material-icons">create</i>Correção de redação</a></li>
+			<Li><a href="/"><i class="material-icons">school</i>Meus cursos</a></li>
+			<Li><a href="/"><i class="material-icons">exit_to_app</i>Sair</a></li>
+		</ul>
+		<A href="#" data-alvo="slide-out" class="sidenav-trigger">
+		<i class="material-icons">menu</i></a>
 
+	</div>
+	
+    </div>
+	<div class="container right">
+		<div class="row">
+			<div class="col s12 m11">
+				<div class ="card">
+					<div class="card-content">
+						<h1 class="m-3 pt-3 ">Perfil do aluno</h1>
+						<div class="card-body">
+							<div class="row">
+								<h5>Nome completo:</h5>
+								<div class="resp">Burt Macklin</div>
+							</div>
+							<hr>
+							<div class="row">
+
+								<h5>Email:</h5>
+								<div class="resp">abc@gmail.com</div>
+							</div>
+							<hr>
+							<div class="row">
+								<h5>Data de Nascimento:</h5>
+								<div class="resp">22/09/20002</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3 content">
+					<h1 class="m-3">Meus cursos</h1>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-3">
+								<h5>Cursos</h5>
+							</div>
+							<div class="resp">Descrição do curso</div>
+						</div>
+					</div>
+				</div>
+				<div class="card mb-3 content">
+					<h1 class="m-3">Certificados</h1>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-3">
+								<h5>Certificados</h5>
+							</div>
+							<div class ="resp">Descrição</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <script>
+		src ="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+		</script>
+	<script>
+		documento.addEventListener('DOMContentLoaded',function( ){
+			var side=document.querySelectorAll( '.sidenav' );
+			M .Sidenav.init( lado );
+		} ) ;
+	</script>
+</body>
 </html>
