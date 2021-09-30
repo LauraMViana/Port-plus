@@ -1,58 +1,54 @@
 body{
-    margin-top: 20px;
-    background-color: #00838f;
-   
-}
-/*Começo do estilo do main */
-.main{
-    padding: 15px;
-    margin-left: -170px;
-    margin-right: -170px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.topbar{
-    background-color: #424242 ;
-    overflow: hidden;
-}
-.topbar a{
-    float: right;
-    color: whitesmoke;
-    text-align: center;
-    padding: 20px 26px;
-    text-decoration: none;
-    font-size: 26px;
-}
-/*Fim do estilo do main */
-/*Começo do estilo do sidebar cofiguração */
-.sidebar{
-    background-color: #0d47a1 ;
-    color: white;
-    height: 100%;
-}
-.sidebar a{
-    margin-left: 26px;
-    display: block;
-    color:white;
-    padding-bottom: 60px;
-    font-size: 30px;
-    text-decoration: none;
+	background-color: #00838f;
 }
 
-/*Fim do estilo do sidebar cofiguração */
+/* Barra de navegação*/
+.brand-logo{
+	text-align: center;
+	text-decoration: strong;
+	margin-top: 50px;
+}
+
+.sidenav.sidenav-fixed{
+	background-color: #1565c0;
+}
+
+.sidenav li>a{
+	color: white;
+}
+
+.sidenav li>a>i.material-icons{
+	color: white;
+}
+
+.card-panel{
+	padding: 0px;
+	height: 64px;
+	width: 240px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
 /*Começo do card*/
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: whitesmoke;
 }
+
 .card h1{
-    text-align: center;
+	text-align: center;
 }
+
 .card h5{
-    margin-left: 26px;
+	margin-left: 26px;
 }
-/*Fim do card*/
+
+div.resp{
+	margin-left: 26px;
+}
+
 .content{
-    background-color: whitesmoke;
-    padding-bottom: 50px;
+	padding-bottom: 50px;
 }
