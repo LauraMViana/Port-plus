@@ -68,6 +68,9 @@ public class PortPlusController {
 		List<Modulo> modulos = mr.findByCurso(curso);
 		md.addObject("modulos", modulos);
 
+		Optional<Modulo> optm = mr.findById(idMod);
+		Modulo mod = optm.get();
+		md.addObject("modulo", mod);
 
 //		List<Material> material = mtr.findByModulo(modulo);
 //		md.addObject("material", material);

@@ -58,7 +58,7 @@ public class PortPlusController {
 // Dados do curso que foram preenchidos na pag anterior, criação  e listagem dos modulos
 // nao ta listando os materias :/ (object references an unsaved transient instance - save the transient instance before )
 	@GetMapping("/criarCurso/{idC}")
-	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo, Long idMod) {
+	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
 		md.setViewName("portPlus/criarModulo");
@@ -67,7 +67,6 @@ public class PortPlusController {
 
 		List<Modulo> modulos = mr.findByCurso(curso);
 		md.addObject("modulos", modulos);
-
 
 //		List<Material> material = mtr.findByModulo(modulo);
 //		md.addObject("material", material);

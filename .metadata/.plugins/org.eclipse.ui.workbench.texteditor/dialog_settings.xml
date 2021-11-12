@@ -8,6 +8,10 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value="textarea"/>
 		<list key="findhistory">
+			<item value="color: royalblue !important;"/>
+			<item value="&lt;label for=&quot;mc&quot;&gt;Conteúdo&lt;/label&gt;"/>
+			<item value="&lt;label for=&quot;tituloM&quot; class=&quot;active&quot;&gt;Título do material&lt;/label&gt;"/>
+			<item value="&lt;br&gt;"/>
 			<item value="&lt;/h6&gt;"/>
 			<item value="&lt;/div&gt;"/>
 			<item value="textarea"/>
@@ -19,10 +23,6 @@
 			<item value="create"/>
 			<item value="inde"/>
 			<item value="clonad"/>
-			<item value="clona"/>
-			<item value="th"/>
-			<item value="div"/>
-			<item value="modal1"/>
 		</list>
 		<list key="replacehistory">
 		</list>
