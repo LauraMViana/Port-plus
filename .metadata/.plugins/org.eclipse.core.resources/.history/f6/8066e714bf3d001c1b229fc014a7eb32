@@ -1,0 +1,48 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:replace="~{sideNav :: menu}"></div>
+	<div class="container right">
+		<h3 th:text="${curso.titulo}"></h3>
+		<div class="row">
+			<div>
+				<p th:text="${curso.descricao}"></p>
+			</div>
+			<div class="col s12 m4 l4" th:each="md:${modulo}">
+				<div class="card-action" th:each="mat:${mat}">
+					<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod},idMat=${mat.id}, tituloMat=${mat.tituloMat})}">
+						<div class="card small">
+							<div class="card-image">
+								<img src="/imagens/azul.png">
+							</div>
+							<div class="card-content">
+								<span class="card-title" th:text="${md.tituloMod}"></span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+	<script>
+		$('.clonador').click(function() {
+			$clone = $('.box_pergunta.hide').clone(true);
+			$clone.removeClass('hide');
+			$('form').append($clone);
+		});
+	</script>
+</body>
+</html>

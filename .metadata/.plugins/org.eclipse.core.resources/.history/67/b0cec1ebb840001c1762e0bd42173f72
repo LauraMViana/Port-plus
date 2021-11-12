@@ -1,0 +1,105 @@
+p {
+	text-align: justify;
+}
+
+span {
+	color: black;
+}
+
+/* botao da foto "criarCurso.html" */
+div.btn {
+	padding: 0px 0px 0px 0px;
+	height: 101px;
+	width: 146px;
+}
+
+/* Barra de navegação*/
+.brand-logo {
+	text-align: center;
+	text-decoration: strong;
+	margin-top: 50px;
+}
+
+.sidenav.sidenav-fixed {
+	background-color: #1565c0;
+}
+
+.sidenav li>a {
+	color: white;
+}
+
+.sidenav li>a>i.material-icons {
+	color: white;
+}
+
+.card-panel {
+	padding: 0px;
+	height: 64px;
+	width: 240px;
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
+/* Pagina dos modulos */
+div.row {
+	margin-right: 84px;
+}
+
+div.card.small {
+	height: 250px;
+}
+
+span.card-title {
+	text-align: center;
+}
+
+/* Pag apresentação Material */
+aside {
+	width: 268px;
+	float: right;
+	margin-right: 20px;
+	border: 1px solid black;
+}
+
+div.conteudo {
+	width: 650px;
+	float: left;
+	height: 365px;
+}
+
+div.card.lista {
+	background-color: #1565C0;
+	width: 266px;
+	margin-top: 0px;
+	height: 50px;
+	text-align: center;
+	padding: 5px 0px 5px 0px;
+	margin: 0px
+}
+;
+div.lista {
+	padding-left: 15px;
+}
+
+div.lista li {
+	padding-top: 15px;
+}
+
+div.lista ul {
+	margin-top: 0px;
+}
+
+/* Add material  */
+div.tela-geral {
+	position: fixed;
+	height: 125%;
+	width: 100%;
+	z-index: 1002;
+	background: #aaaa;
+	opacity: 0.5;
+}
+
+div.tela-sobreposta {
+	z-index: 1003;
+	width:500px;
+	margin:200px 400px 0px 0px; }

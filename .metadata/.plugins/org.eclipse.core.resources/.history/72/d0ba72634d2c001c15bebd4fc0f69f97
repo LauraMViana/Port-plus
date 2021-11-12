@@ -1,0 +1,108 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>Criar curso</title>
+</head>
+<body>
+	<div th:insert="~{index :: menu}"></div>
+	<div class="container right">
+		<div class="row">
+			<h3>Criando modulos:</h3>
+			<ul class="collapsible">
+				<li class="active">
+					<div class="collapsible-header">
+						<i class="material-icons">toc</i><input id="nome" type="text"
+							class="validate" value="Introduçao"><label for="nome"
+							class="active"></label>
+						<div>
+							<button
+								class="btn waves-effect waves-light align-center clonador"
+								type="submit" name="action">
+								<i class="material-icons">add</i>
+							</button>
+						</div>
+						<div>
+							<button
+								class="btn waves-effect waves-light align-centerbtn_remove"
+								value="Remover" name="action">
+								<i class="material-icons">delete</i>
+							</button>
+						</div>
+					</div>
+					<div class="collapsible-body">
+						<table>
+							<tr>
+								<td><i class="material-icons">toc</i></td>
+								<td><input id="nome" type="text" class="validate"
+									value="Introduçao"><label for="nome" class="active"></label>
+								</td>
+								<td>
+									<button
+										class="btn waves-effect waves-light align-center clonador"
+										type="submit" name="action">
+										<i class="material-icons"></i>
+									</button>
+								</td>
+								<td>
+								<td><a href="#" class="small material-icons" type="button">add</a>
+									<a href="#" class="small material-icons" type="button">delete</a></td>
+							</tr>
+						</table>
+						<ul>
+							<li><div class="input-field">
+									<i class="material-icons">book</i><input id="nome" type="text"
+										class="validate" value="Introduçao"><label for="nome"
+										class="active"></label> <i class="material-icons">add</i> <i
+										class="material-icons">delete</i>
+									<!-- <i class="material-icons">add</i><input id="nome" type="text"
+											class="validate" value="Conteudo 1"><label for="nome"
+											class="active"></label>
+										<div>LAlalalalalalalal</div> -->
+								</div></li>
+							<i class="material-icons">assignment</i>
+							<li><input id="nome" type="text" class="validate"
+								value="Questionario 1"><label for="nome" class="active"></label>
+								<i class="material-icons">delete</i></li>
+							<li><i class="material-icons">assignment</i> <input
+								id="nome" type="text" class="validate" value="Redação 1"><label
+								for="nome" class="active"> </label></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<div class="right-align">
+				<button class="btn waves-effect waves-light align-center"
+					type="submit" name="action">Salvar</button>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+	<script>
+		/* 	    $(document).foundation(); */
+		$('.clonador').click(function() {
+			$clone = $('.modulo').clone(true);
+			$clone.removeClass('hide');
+			$('.row').append($clone);
+		});
+
+		$('.btn_remove').click(function() {
+			$(this).parents('.modulo').remove();
+		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var collapse = document.querySelectorAll('.collapsible');
+			M.Collapsible.init(collapse);
+		});
+	</script>
+</body>
+</html>

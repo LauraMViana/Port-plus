@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{sideNav :: menu}"></div>
+
+	<div class="container right addConteudo">
+		<h5>
+			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
+				th:text="${modulo.tituloMod}"></span>
+		</h5>
+		<br>
+		<form
+			th:action="@{/portPlus/acesso/{idC}/{idMod} (idC=${curso.id},idMod=${modulo.id})}"
+			method="post">
+			<div class="input-field col s9">
+				<label for="tituloM" class="active">Título do material</label><input
+					placeholder="Digite o título do material" id="tituloM" type="text"
+					class="validate" th:field="${material.tituloMat}">
+				<div>
+					<label for="mc" class="active">Conteúdo</label>
+					<textarea placeholder="Insira o conteúdo" id="mc" class="ac"
+						th:field="${material.conteudo}"></textarea>
+				</div>
+			</div>
+			<div class="right-align">
+				<button class="btn waves-effect waves-light align-center"
+					type="reset" name="action">Limpar</button>
+				<button class="btn waves-effect waves-light align-center"
+					type="submit" name="action">Salvar</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
