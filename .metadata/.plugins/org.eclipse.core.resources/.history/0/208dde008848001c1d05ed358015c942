@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{sideNav :: menu}"></div>
+	<div class="container right">
+		<div class="row">
+			<div class="col s12 m4 l4" th:each="c:${cursos}">
+				<!-- o problema de nao mostrar os mod do curso2 esta na div card-action mas nao sei como ajeitar AINDA -->
+				<!-- descobrir pq essa pagina ñ funciona apenas "material.id" como funciona o "curso.id" pois acho q é isso que ta fazendo acontecer esses erros  -->
+				<div class="card-action">
+					<!-- th:each="material:${mat}" -->
+					<div class="card small">
+						<div class="card-image">
+							<!-- <a
+								th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod},idMat=${material.id}, tituloMat=${material.tituloMat})}">
+								 -->
+							<img src="/imagens/azul.png"> </a>
+						</div>
+						<div class="card-content">
+							<!-- <a
+								th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod},idMat=${material.id}, tituloMat=${material.tituloMat})}">
+ -->
+							<span class="card-title" th:text="${c.titulo}"></span> </a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

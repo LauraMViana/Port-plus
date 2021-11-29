@@ -21,6 +21,10 @@ import ifrn.tcc.port.repositories.ModuloRepository;
 @Controller
 @RequestMapping("/portPlus")
 public class PortPlusController {
+	
+//	o thymeleaf nao ta avisando qque o campo nao pode ser nulo
+//	nao estar mostrando as atividades na pag criar modulo
+	
 
 	@Autowired
 	private CursoRepository cr;
@@ -31,8 +35,6 @@ public class PortPlusController {
 	@Autowired
 	private MaterialRepository mtr;
 
-	private Long idC;
-
 	@GetMapping("/criarCurso/paginaEmDesenvolvimento")
 	public String paginaEmDesenvolvimento() {
 		return "construcao";
@@ -41,7 +43,7 @@ public class PortPlusController {
 
 //	Acessar o form de dados gerais do curso
 	@GetMapping("/criarCurso")
-	public String acessarForm(Curso curso, Modulo modulo, Material material) {
+	public String acessarForm(Curso curso) {
 		return "portPlus/CriarCurso";
 
 	}
@@ -50,15 +52,15 @@ public class PortPlusController {
 	@PostMapping("/criarCurso")
 	public String salvarCurso(Curso curso) {
 		cr.save(curso);
-		idC = curso.getId();
+		Long idC = curso.getId();
 		return "redirect:/portPlus/criarCurso/" + idC;
 
 	}
 
 // Dados do curso que foram preenchidos na pag anterior, criação  e listagem dos modulos
-// nao ta listando os materias :/ (object references an unsaved transient instance - save the transient instance before )
+// nao ta listando os materias :/
 	@GetMapping("/criarCurso/{idC}")
-	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo, Long idMod) {
+	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
 		md.setViewName("portPlus/criarModulo");
@@ -67,10 +69,6 @@ public class PortPlusController {
 
 		List<Modulo> modulos = mr.findByCurso(curso);
 		md.addObject("modulos", modulos);
-
-
-//		List<Material> material = mtr.findByModulo(modulo);
-//		md.addObject("material", material);
 
 		return md;
 	}
@@ -128,7 +126,7 @@ public class PortPlusController {
 		return "redirect:/portPlus/criarCurso/{idC}";
 	}
 
-//Lista De Cursos Disponivel
+//Lista De Cursos Disponivel 
 	@GetMapping()
 	public ModelAndView IndexC() {
 		List<Curso> cursos = cr.findAll();
@@ -137,11 +135,20 @@ public class PortPlusController {
 		return mv;
 	}
 
+	// Cursos criados -Pag do professor
+	@GetMapping("/meusCursos")
+	public ModelAndView ListaCurso() {
+		List<Curso> cursos = cr.findAll();
+		ModelAndView mv = new ModelAndView("portPlus/meusCursos");
+		mv.addObject("cursos", cursos);
+		return mv;
+	}
+
 //Detalhamento do Curso(Titulo,descrição e modulos)
 // quando usa o Optional aparece--> ERRO: O ID fornecido não deve ser nulo!
 	@GetMapping("/meusCursos/{id}/{titulo}")
-	public ModelAndView detalhamentoCurso(@PathVariable Long id, @PathVariable String titulo, Modulo modulo,
-			Long idMat) {
+	public ModelAndView detalhamentoCurso(@PathVariable Long id, @PathVariable String titulo, Long idMat, Long idMod,
+			Modulo modulo) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(id);
 
@@ -156,14 +163,33 @@ public class PortPlusController {
 		List<Modulo> modulos = mr.findByCurso(curso);
 		md.addObject("modulo", modulos);
 
-//		List<Material> material = mtr.findByModulo(modulo);
-//		md.addObject("mat", material);
-
-		Optional<Material> op = mtr.findById(idMat);
-		Material material2 = op.get();
-		md.addObject("material", material2);
-
 		return md;
+	}
+
+	@GetMapping("/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}")
+	public ModelAndView aptMat(@PathVariable Long idC, @PathVariable String titulo, @PathVariable Long idMod,
+			Long idMat) {
+		ModelAndView mv = new ModelAndView();
+		Optional<Curso> opt = cr.findById(idC);
+
+		if (opt.isEmpty()) {
+			mv.setViewName("redirect:/portPlus");
+			return mv;
+		}
+
+//		mv.setViewName("portPlus/apresentMat");
+		mv.setViewName("construcao2");
+		Curso curso = opt.get();
+		mv.addObject("curso", curso);
+
+		Optional<Modulo> optm = mr.findById(idMod);
+		Modulo modulo = optm.get();
+		mv.addObject("modulo", modulo);
+
+		List<Material> material = mtr.findByModulo(modulo);
+		mv.addObject("material", material);
+
+		return mv;
 	}
 
 //Apresentação do material-> Videos e conteudos de cada modulo.
@@ -183,6 +209,7 @@ public class PortPlusController {
 		mv.addObject("curso", curso);
 
 		Optional<Modulo> optm = mr.findById(idMod);
+
 		Modulo modulo = optm.get();
 		mv.addObject("modulo", modulo);
 

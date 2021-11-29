@@ -93,14 +93,7 @@ div.lista ul {
 }
 
 /* Add material  */
-/* div.tela-geral {
-	position: fixed;
-	height: 125%;
-	width: 100%;
-	z-index: 1002;
-	background: #aaaa;
-	opacity: 0.5;
-} */
+
 div.addConteudo {
 	width: 500px;
 	margin: 25px 345px 0px 0px;
@@ -110,11 +103,18 @@ textarea {
 	height: 300px;
 }
 
-.validate {
-	color: royalblue !important;
-}
-
 div.addVideo {
 	width: 500px;
 	margin: 125px 345px 0px 0px;
 }
+
+/* criar modulo */
+.col.s5 {
+	padding: 0px;
+}
+
+.col.s9 {
+	padding: 0px;
+}
+
+/* meus cursos */

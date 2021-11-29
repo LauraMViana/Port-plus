@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="textarea"/>
+		<item key="selection" value="card"/>
 		<list key="findhistory">
-			<item value="color: royalblue !important;"/>
-			<item value="&lt;label for=&quot;mc&quot;&gt;Conteúdo&lt;/label&gt;"/>
-			<item value="&lt;label for=&quot;tituloM&quot; class=&quot;active&quot;&gt;Título do material&lt;/label&gt;"/>
-			<item value="&lt;br&gt;"/>
-			<item value="&lt;/h6&gt;"/>
-			<item value="&lt;/div&gt;"/>
-			<item value="textarea"/>
-			<item value="text"/>
-			<item value="&lt;/script&gt;"/>
-			<item value="users-c"/>
-			<item value="users-"/>
-			<item value="user"/>
-			<item value="create"/>
-			<item value="inde"/>
-			<item value="clonad"/>
+			<item value="card-c"/>
+			<item value="card"/>
+			<item value="modu"/>
+			<item value="colla"/>
+			<item value="coll"/>
+			<item value="div"/>
+			<item value="&lt;label for=&quot;nome&quot; class=&quot;active&quot;&gt;Público-alvo&lt;/label&gt;"/>
+			<item value="pub"/>
+			<item value="puc"/>
+			<item value="pu"/>
+			<item value="/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}"/>
+			<item value="/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/"/>
+			<item value="modulo"/>
+			<item value="curso"/>
+			<item value="material"/>
 		</list>
 		<list key="replacehistory">
 		</list>

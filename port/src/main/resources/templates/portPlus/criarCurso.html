@@ -33,7 +33,8 @@
 						<div class="card-content ">
 							<span class="card-title">Informações gerais:</span>
 							<div class="row">
-								<form action="/portPlus/criarCurso" method="post">
+								<form action="/portPlus/criarCurso" method="post"
+									th:object="${curso}">
 									<div class="col s3">
 										<label>Logotipo do curso</label>
 										<div class="file input-field">
@@ -45,33 +46,39 @@
 									</div>
 									<div class="input-field col s9">
 										<input placeholder="Digite o título do curso" id="titulo"
-											type="text" class="validate" th:field="${curso.titulo}">
-										<label for="titulo" class="active">Título</label>
+											type="text" class="validate" th:field="*{titulo}"> <label
+											for="titulo" class="active">Título</label>
+										<p th:errors="*{titulo}"></p>
 										<div>
 											<label for="cg">Carga-horária(h)</label> <input
 												placeholder="Carga-horária" id="cg" type="number"
-												class="validate" th:field="${curso.cargahoraria}">
+												class="validate" th:field="*{cargahoraria}">
 										</div>
+										<p th:errors="*{cargahoraria}"></p>
 									</div>
 									<div class="input-field col s12">
 										<input placeholder="Qual o público-alvo do curos" id="nome"
-											type="text" class="validate" th:field="${curso.publicalvo}">
+											type="text" class="validate" th:field="*{publicalvo}">
 										<label for="nome" class="active">Público-alvo</label>
+										<p th:errors="*{publicalvo}"></p>
 									</div>
 
 									<div class="input-field col s12">
 										<textarea placeholder="Digite a descrição do curso"
 											id="textarea1" class="materialize-textarea"
-											th:field="${curso.descricao}"></textarea>
+											th:field="*{descricao}"></textarea>
 										<label for="textarea1" class="active">Descrição</label>
+										<p th:errors="*{descricao}"></p>
 									</div>
 
 									<div class="input-field col s12">
 										<textarea placeholder="Digite os Conteúdos abordados no curso"
 											id="textarea1" class="materialize-textarea"
-											th:field="${curso.conteudo}"></textarea>
+											th:field="*{conteudo}"></textarea>
 										<label for="textarea1" class="active">Conteúdo</label>
+										<p th:errors="*{conteudo}"></p>
 									</div>
+
 									<div class="right-align">
 										<button class="btn waves-effect waves-light align-center"
 											type="reset" name="action">Limpar</button>
