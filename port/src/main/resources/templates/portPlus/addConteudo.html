@@ -11,7 +11,7 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:insert="~{sideNav :: menu}"></div>
+	<div th:insert="~{menu :: menu}"></div>
 
 	<div class="container right addConteudo">
 		<h5>
@@ -28,8 +28,8 @@
 					class="validate" th:field="${material.tituloMat}">
 				<div>
 					<label for="mc" class="active">Conteúdo</label>
-					<textarea placeholder="Insira o conteúdo" id="mc"
-						class="validate" th:field="${material.conteudo}"></textarea>
+					<textarea placeholder="Insira o conteúdo" id="mc" class="validate"
+						th:field="${material.conteudo}"></textarea>
 				</div>
 			</div>
 			<div class="right-align">

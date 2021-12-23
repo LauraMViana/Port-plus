@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Material {
@@ -13,11 +14,11 @@ public class Material {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	@NotBlank
 	private String tituloMat;
 	@Lob
 	private String conteudo;
 	private String video;
-	private String questionario;
 	@ManyToOne
 	private Modulo modulo;
 
@@ -53,14 +54,6 @@ public class Material {
 		this.video = video;
 	}
 
-	public String getQuestionario() {
-		return questionario;
-	}
-
-	public void setQuestionario(String questionario) {
-		this.questionario = questionario;
-	}
-
 	public Modulo getModulo() {
 		return modulo;
 	}
@@ -72,7 +65,7 @@ public class Material {
 	@Override
 	public String toString() {
 		return "Material [id=" + id + ", tituloMat=" + tituloMat + ", conteudo=" + conteudo + ", video=" + video
-				+ ", questionario=" + questionario + ", modulo=" + modulo + "]";
+				+ ", modulo=" + modulo + "]";
 	}
 
 }

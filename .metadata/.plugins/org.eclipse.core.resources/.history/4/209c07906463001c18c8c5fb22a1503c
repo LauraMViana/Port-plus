@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:fragment="menu">
+		<ul id="slide-out" class="sidenav sidenav-fixed">
+			<li>
+				<div class="brand-logo">
+					<h4 class="white-text">PORT+</h4>
+				</div>
+				<div class="user-view">
+					<!--  add link-->
+					<div class="col s12 m8 offset-m2 l6 offset-l3">
+						<div class="card-panel blue accent-2">
+							<div class="row valign-wrapper">
+								<div class="col s4">
+									<img src="/Imagens/usuario.png" class="circle">
+								</div>
+								<div class="col s10">
+									<span class="white-text"><strong>Username</strong> </span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li><a href="/"><i class="material-icons">home </i>Menu</a></li>
+			<li><a href="/portPlus/meusCursos"><i class="material-icons">school
+				</i>Meus cursos</a></li>
+			<li><a href="/"><i class="material-icons">create </i>Correção
+					de RED</a></li>
+			<li><a href="/portPlus/criarCurso"><i class="material-icons">school
+				</i>Criar cursos</a></li>
+			<li><a href="/"><i class="material-icons">exit_to_app</i>Sair</a></li>
+			<li><a href="/portPlus/login"><i class="material-icons">school
+				</i>Criar cursos</a></li>
+				<li><a href="/portPlus/signup"><i class="material-icons">school
+				</i>Criar cursos</a></li>
+			
+		</ul>
+		<a href="#" data-target="slide-out" class="sidenav-trigger"><i
+			class="material-icons">menu</i></a>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var side = document.querySelectorAll('.sidenav');
+			M.Sidenav.init(side);
+		});
+	</script>
+</body>
+</html>
+

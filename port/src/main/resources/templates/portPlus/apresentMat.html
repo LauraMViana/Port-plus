@@ -11,7 +11,7 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:insert="~{sideNav :: menu}"></div>
+	<div th:insert="~{menu :: menu}"></div>
 	<div class="container right">
 		<!-- ajeitar para ficar igual icone com o nome -->
 		<div class="cabecalho">
@@ -35,19 +35,19 @@
 
 		<aside>
 			<div class="card lista">
-				<span class="card-title" th:text="${modulo.tituloMod}">Nome
-					do Modulo</span>
+				<span class="card-title" th:text="${modulo.tituloMod}"></span>
 			</div>
 			<div class="lista" th:each="mt: ${material}">
 
 				<ul>
-					<li><i class="material-icons">play_circle_outline</i> <a
+					<li th:if="${mt.conteudo == null}"><i class="material-icons">play_circle_outline</i> <a
 						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo}, idMod=${modulo.id}, tituloMod=${modulo.tituloMod},idMat=${mt.id}, tituloMat=${mt.tituloMat})}">
 							<span th:text="${mt.tituloMat}"></span>
 					</a></li>
-					<!-- Caso precise -->
-					<li><i class="material-icons">assignment</i><i
-						class="material-icons">book</i></li>
+					<li th:if="${mt.video == null}"><i class="material-icons">book</i> <a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo}, idMod=${modulo.id}, tituloMod=${modulo.tituloMod},idMat=${mt.id}, tituloMat=${mt.tituloMat})}">
+							<span th:text="${mt.tituloMat}"></span>
+					</a></li>
 				</ul>
 			</div>
 		</aside>

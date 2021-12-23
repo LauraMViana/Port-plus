@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="card"/>
+		<item key="selection" value="construca"/>
 		<list key="findhistory">
-			<item value="card-c"/>
-			<item value="card"/>
-			<item value="modu"/>
-			<item value="colla"/>
-			<item value="coll"/>
-			<item value="div"/>
-			<item value="&lt;label for=&quot;nome&quot; class=&quot;active&quot;&gt;Público-alvo&lt;/label&gt;"/>
-			<item value="pub"/>
-			<item value="puc"/>
-			<item value="pu"/>
-			<item value="/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}"/>
-			<item value="/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/"/>
-			<item value="modulo"/>
-			<item value="curso"/>
-			<item value="material"/>
+			<item value="construca"/>
+			<item value="constru"/>
+			<item value="inst"/>
+			<item value="ins"/>
+			<item value="pro-"/>
+			<item value="if (!modulos.isEmpty()) {"/>
+			<item value="cr.deleteById(idC);"/>
+			<item value="&#x09;&#x09;&#x09;&#x09;cr.deleteById(idC);"/>
+			<item value="tipo"/>
+			<item value="&lt;/script&gt;"/>
+			<item value="&lt;span class=&quot;card-title&quot;"/>
+			<item value="&lt;div class=&quot;row&quot;&gt;"/>
+			<item value="&lt;/div&gt;"/>
+			<item value="conte"/>
+			<item value="cont"/>
 		</list>
 		<list key="replacehistory">
 		</list>

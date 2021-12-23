@@ -12,7 +12,7 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:insert="~{sideNav :: menu}"></div>
+	<div th:insert="~{menu :: menu}"></div>
 	<div class="container right">
 		<div class="row">
 			<div class="col s12 m13">
@@ -23,53 +23,49 @@
 							<div class="dados do curso">
 								<div class="col s3">
 									<label>Logotipo do curso</label>
-									<div class="file input-field">
-										<div class="btn">
-											<i class="large material-icons">add_a_photo</i> <input
-												type="hidden">
-										</div>
+									<div>
+										<img width="180" height="100" th:src="@{/portPlus/{imagem} (imagem=${curso.nomeLogo})}">
 									</div>
 								</div>
-
 								<div class="col s9">
-									<div>
+									<div class="col s5">
 										<label for="titulo" class="active">Título</label><br> <input
 											type="hidden" id="titulo" th:text="${curso.titulo}"></input>
-
 									</div>
-									<div class="col s5">
+
+									<div class="col s4">
 										<label for="cg">Carga-horária(h)</label> <br> <input
 											type="hidden" id="cg" th:text="${curso.cargahoraria}">
 										horas
 									</div>
 
-									<div class="col s5">
+									<div class="col s3">
 										<label for="nome" class="active">Público-alvo</label><br>
 										<input type="hidden" id="nome" th:text="${curso.publicalvo}">
 									</div>
 
-									<div class="col s9">
+									<div class="col s12 md">
 										<label for="textarea" class="active">Descrição</label><br>
 										<input type="hidden" id="textarea"
 											th:text="${curso.descricao}"></input>
-
-
 									</div>
-								</div>
 
-								<div class="col s12">
-									<label for="textarea1" class="active">Conteúdo</label><br>
-									<input type="hidden" id="textarea1" th:text="${curso.conteudo}"></input>
+									<div class="col s12 md">
+										<label for="textarea1" class="active">Conteúdo</label><br>
+										<input type="hidden" id="textarea1"
+											th:text="${curso.conteudo}"></input>
+									</div>
 								</div>
 							</div>
 						</div>
-
+						<hr>
 						<form th:action="@{/portPlus/criarCurso/{idC}(idC=${curso.id})}"
 							method="post">
 							<div class="text-center right-align">
 								<a class="waves-effect waves-light btn modal-trigger"
 									href="#modal1">+Módulo</a>
 							</div>
+
 							<div id="modal1" class="modal modal-fixed-footer">
 								<div class="modal-content">
 									<div class="input-field col s10">
@@ -93,25 +89,21 @@
 								<li>
 									<div class="collapsible-header">
 										<i class="material-icons">toc</i>
-										<div class="col s8" th:text="${md.tituloMod}"></div>
-										<div class="col s2" th:text="${md.id}"></div>
+										<div class="col s10" th:text="${md.tituloMod}"></div>
 										<div>
-											<a class="dropdown-trigger btn" href="#"
-												data-target='dropdown1'><i class="material-icons">add</i></a>
-											<ul id='dropdown1' class="dropdown-content">
+											<a class="dropdown-trigger btn" href=""
+												data-target="dropdown1"><i class="material-icons">add</i></a>
+											<ul id="dropdown1" class='dropdown-content'>
 												<li><a
 													th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarVideo (idC=${curso.id}, idMod=${md.id})}">Vídeo</a></li>
 												<li><a
 													th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarConteudo (idC=${curso.id}, idMod=${md.id})}">Conteúdo</a></li>
-												<li><a
-													href="/portPlus/criarCurso/paginaEmDesenvolvimento">Questionário</a></li>
 											</ul>
 										</div>
-
 										<div>
-											<button class="btn waves-effect waves-light" value="Remover">
-												<i class="material-icons">delete</i>
-											</button>
+											<a class="btn waves-effect waves-light"
+												th:href="@{/portPlus/criarCurso/{idC}/{idMod}/Apagar (idC=${curso.id}, idMod=${md.id})}"><i
+												class="material-icons">delete</i> </a>
 										</div>
 									</div>
 									<div class="collapsible-body" th:each="mt:${material}">
@@ -124,7 +116,6 @@
 											</tr>
 										</table>
 									</div>
-
 								</li>
 							</ul>
 						</div>
@@ -132,7 +123,6 @@
 							<a href="/portPlus/meusCursos"
 								class="btn waves-effect waves-light align-center">concluído</a>
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -143,7 +133,6 @@
 	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
 
 	<script>
-		//botão retangular tipo leque
 		document.addEventListener('DOMContentLoaded', function() {
 			var elems = document.querySelectorAll('.dropdown-trigger');
 			var instances = M.Dropdown.init(elems);

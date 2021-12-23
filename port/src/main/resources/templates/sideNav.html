@@ -11,7 +11,7 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:fragment="menu">
+	<div th:fragment="men">
 		<ul id="slide-out" class="sidenav sidenav-fixed">
 			<li>
 				<div class="brand-logo">
@@ -33,18 +33,22 @@
 					</div>
 				</div>
 			</li>
-			<li><a href="/"><i class="material-icons">home </i>Menu</a></li>
+			<li><a href="/"><i class="material-icons">home </i>Menu(A)</a></li>
 			<li><a href="/portPlus/meusCursos"><i class="material-icons">school
-				</i>Meus cursos</a></li>
-			<li><a href="/"><i class="material-icons">create </i>Correção
-					de RED</a></li>
+				</i>Meus cursos(P)</a></li>
+			<!-- <li><a href="/"><i class="material-icons">create </i>Correção
+					de RED</a></li> -->
 			<li><a href="/portPlus/criarCurso"><i class="material-icons">school
-				</i>Criar cursos</a></li>
-			<li><a href="/"><i class="material-icons">exit_to_app</i>Sair</a></li>
+				</i>Criar cursos(P)</a></li>
+			<!-- <li><a href="/"><i class="material-icons">exit_to_app</i>Sair</a></li> -->
+			<li><a href="/portPlus/login"><i class="material-icons">school
+				</i>Login</a></li>
+			<li><a href="/portPlus/signup"><i class="material-icons">school
+				</i>SignUp</a></li>
+
 		</ul>
 		<a href="#" data-target="slide-out" class="sidenav-trigger"><i
 			class="material-icons">menu</i></a>
-
 	</div>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
