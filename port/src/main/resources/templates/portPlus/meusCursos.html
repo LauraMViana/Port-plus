@@ -23,24 +23,27 @@
 				<div class="card-action">
 					<div class="card small">
 						<div class="card-image">
-							<img th:src="@{/portPlus/{imagem} (imagem=${c.nomeLogo})}">
+							<img th:src="@{/portPlus/{imagem} (imagem=${c.nomeLogo})}"
+								width="300" height="200 ">
 						</div>
 						<div class="card-content meuscursos col s12">
 							<span class="card-title meuscursos col s9 " th:text="${c.titulo}">
 							</span>
-
-							<div class="action-btn right col s3">
+							<div>
+								<a href="/portPlus/meusCursos/submeterCurso">SUBMETER </a>
+							</div>
+							<!-- <div class="action-btn right col s3">
 								<a class="btn-floating indigo darken-4"> <i
 									class="large material-icons">more_vert</i>
 								</a>
-								<ul>
+								 <ul>
 									<li><a class="btn-floating indigo darken-3"
 										th:href="@{/portPlus/meusCursos/{idC}/Apagar (idC=${c.id})}"><i
 											class="material-icons">delete</i></a></li>
 									<li><a class="btn-floating indigo darken-2"><i
 											class="material-icons">mode_edit</i></a></li>
-								</ul>
-							</div>
+								</ul> 
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -58,6 +61,42 @@
 			var instances = M.FloatingActionButton.init(elems, {
 				direction : 'left',
 				hoverEnabled : false
+			});
+		});
+	</script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile p").click(function() {
+				$(".profile-div").toggle();
 			});
 		});
 	</script>

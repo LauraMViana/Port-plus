@@ -32,18 +32,14 @@ import ifrn.tcc.port.repositories.ModuloRepository;
 @Controller
 @RequestMapping("/portPlus")
 public class PortPlusController {
-//o layout ta uma bosta
-//apresentacao materais individual
-//alguma forma de rodar o link do youtube so funciona com <embed>
-	// proibir colocar "/" nos titulos
+	// juntar o materialize com o bootStrap
+	// outra forma de rodar o link do youtube so funciona com <embed>
+	// nao estar mostrando as atividades na pag criar modulo// é realmente
+	// necessario??
+	// inscrever-se e "postar curso" --> vai ter um botao ou vai ser pelo titulo??
 
-//nao estar mostrando as atividades na pag criar modulo
-//nao pega o id certo na hora de add os materiais mas o pega na hora de delete (PROBLEMA A LISTA PROCURAR UMA FORMA DE MUDAR)
-//validação materaial erro
-//alguma anotação para identificar q um atributo é um linkk
-//apgar curso
-
-	private static String caminhologotipoCurso = "/Users/Tiago/Desktop/workspace/tcc/port/src/main/resources/static/Imagens/";
+//Caminho para salvar a logotipo do curso
+	private static String caminhologotipoCurso = "src/main/resources/static/Imagens/";
 	@Autowired
 	private CursoRepository cr;
 
@@ -53,29 +49,22 @@ public class PortPlusController {
 	@Autowired
 	private MaterialRepository mtr;
 
-	@GetMapping("/criarCurso/paginaEmDesenvolvimento")
-	public String paginaEmDesenvolvimento() {
-		return "portPlus/construcao";
-
-	}
-
+	// Login
 	@GetMapping("/login")
 	public String login() {
-		return "menu";
-
+		return "portPlus/login";
 	}
 
+//	forms do cadastro
 	@GetMapping("/signup")
-	public String Form() {
+	public String signup() {
 		return "portPlus/signup";
-
 	}
 
 //	Acessar o form de dados gerais do curso
 	@GetMapping("/criarCurso")
 	public String acessarForm(Curso curso) {
-		return "portPlus/CriarCurso";
-
+		return "portPlus/criarCurso/CriarCurso";
 	}
 
 //	Salvar dados gerais do curso e redirect para criar modulos"
@@ -102,28 +91,13 @@ public class PortPlusController {
 
 	}
 
-//	Apagar o curso
-	@GetMapping("/meusCursos/{idC}/Apagar")
-	public String ApagarCurso(@PathVariable Long idC, Long idMod) {
-		Optional<Curso> opt = cr.findById(idC);
-		if (!opt.isEmpty()) {
-			Curso curso = opt.get();
-			List<Modulo> modulos = mr.findByCurso(curso);
-			if (!modulos.isEmpty()) {
-			}
-//			mr.deleteAll(modulos);
-//			cr.deleteById(idC);
-		}
-		return "redirect:/portPlus/meusCursos";
-	}
-
 // Dados do curso que foram preenchidos na pag anterior, criação  e listagem dos modulos
 // nao ta listando os materias :/
 	@GetMapping("/criarCurso/{idC}")
 	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
-		md.setViewName("portPlus/criarModulo");
+		md.setViewName("portPlus/criarCurso/criarModulo");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
 
@@ -159,13 +133,13 @@ public class PortPlusController {
 		return "redirect:/portPlus/criarCurso/{idC}";
 	}
 
-//	Pagina para add materiais aos modulos, porem nao ta pegando o idMod corretamente
+//	Pagina para add materiais aos modulos
 	@GetMapping("/criarCurso/{idC}/{idMod}/adicionarVideo")
 	public ModelAndView addvideo(@PathVariable Long idC, @PathVariable Long idMod, Material material) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
 
-		md.setViewName("/portPlus/addvideo");
+		md.setViewName("/portPlus/criarCurso/addvideo");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
 
@@ -181,7 +155,7 @@ public class PortPlusController {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
 
-		md.setViewName("/portPlus/addConteudo");
+		md.setViewName("/portPlus/criarCurso/addConteudo");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
 
@@ -197,10 +171,6 @@ public class PortPlusController {
 	public ModelAndView salvarMat(@PathVariable Long idC, @PathVariable Long idMod, @Valid Material material,
 			BindingResult result) {
 		ModelAndView mv = new ModelAndView();
-//		if (result.hasErrors()) {
-//
-//		}
-
 		Optional<Modulo> optm = mr.findById(idMod);
 		Modulo modulo = optm.get();
 		material.setModulo(modulo);
@@ -218,7 +188,7 @@ public class PortPlusController {
 		return mv;
 	}
 
-	// Cursos criados -Pag do professor
+// Cursos criados -Pag do professor
 	@GetMapping("/meusCursos")
 	public ModelAndView ListaCurso() {
 		List<Curso> cursos = cr.findAll();
@@ -227,6 +197,7 @@ public class PortPlusController {
 		return mv;
 	}
 
+//Exibir a imagem do logo
 	@GetMapping("{imagem}")
 	@ResponseBody
 	public byte[] imagem(@PathVariable("imagem") String imagem) throws IOException {
@@ -239,7 +210,6 @@ public class PortPlusController {
 	}
 
 //Detalhamento do Curso(Titulo,descrição e modulos)
-// quando usa o Optional aparece--> ERRO: O ID fornecido não deve ser nulo!
 	@GetMapping("/meusCursos/{id}/{titulo}")
 	public ModelAndView detalhamentoCurso(@PathVariable Long id, @PathVariable String titulo, Long idMat, Long idMod,
 			Modulo modulo) {
@@ -250,7 +220,7 @@ public class PortPlusController {
 			md.setViewName("redirect:/portPlus");
 			return md;
 		}
-		md.setViewName("portPlus/apresentCurso");
+		md.setViewName("portPlus/apresentarCurso/apresentCurso");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
 
@@ -260,9 +230,10 @@ public class PortPlusController {
 		return md;
 	}
 
+//Apresentação do material-> Videos e conteudos de cada modulo.
 	@GetMapping("/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}")
 	public ModelAndView aptMat(@PathVariable Long idC, @PathVariable String titulo, @PathVariable Long idMod,
-			Long idMat, String tituloMat) {
+			Long idMat) {
 		ModelAndView mv = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
 
@@ -270,8 +241,7 @@ public class PortPlusController {
 			mv.setViewName("redirect:/portPlus");
 			return mv;
 		}
-
-		mv.setViewName("construcao");
+		mv.setViewName("portPlus/apresentarCurso/apresentMaterial");
 		Curso curso = opt.get();
 		mv.addObject("curso", curso);
 
@@ -280,19 +250,10 @@ public class PortPlusController {
 		mv.addObject("modulo", modulo);
 
 		List<Material> material = mtr.findByModulo(modulo);
+		mv.addObject("mat", material.get(0));
 		mv.addObject("material", material);
 
 		return mv;
-	}
-
-	@GetMapping("/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}")
-	public String red(@PathVariable Long idC, @PathVariable String titulo, @PathVariable Long idMod, Long idMat,
-			String tituloMat) {
-		
-		List<Material> material = mtr.findByModulo(modulo);
-		mv.addObject("material", material);
-		
-		return "/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat}";
 	}
 
 //Apresentação do material-> Videos e conteudos de cada modulo.
@@ -307,7 +268,7 @@ public class PortPlusController {
 			return mv;
 		}
 
-		mv.setViewName("portPlus/apresentMat");
+		mv.setViewName("portPlus/apresentarCurso/apresentMat");
 		Curso curso = opt.get();
 		mv.addObject("curso", curso);
 
@@ -325,5 +286,4 @@ public class PortPlusController {
 
 		return mv;
 	}
-
 }

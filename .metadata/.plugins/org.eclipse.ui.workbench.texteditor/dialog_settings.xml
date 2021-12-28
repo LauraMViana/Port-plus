@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="construca"/>
+		<item key="selection" value="materi"/>
 		<list key="findhistory">
-			<item value="construca"/>
-			<item value="constru"/>
-			<item value="inst"/>
-			<item value="ins"/>
-			<item value="pro-"/>
-			<item value="if (!modulos.isEmpty()) {"/>
-			<item value="cr.deleteById(idC);"/>
-			<item value="&#x09;&#x09;&#x09;&#x09;cr.deleteById(idC);"/>
-			<item value="tipo"/>
-			<item value="&lt;/script&gt;"/>
-			<item value="&lt;span class=&quot;card-title&quot;"/>
-			<item value="&lt;div class=&quot;row&quot;&gt;"/>
+			<item value="materi"/>
+			<item value="matera"/>
+			<item value="mater"/>
+			<item value="h1"/>
+			<item value="sair"/>
+			<item value="pro"/>
+			<item value="p"/>
 			<item value="&lt;/div&gt;"/>
-			<item value="conte"/>
-			<item value="cont"/>
+			<item value="dado"/>
+			<item value="dados"/>
+			<item value="act"/>
+			<item value="h6"/>
+			<item value="form"/>
+			<item value="mód"/>
+			<item value="mó"/>
 		</list>
 		<list key="replacehistory">
 		</list>

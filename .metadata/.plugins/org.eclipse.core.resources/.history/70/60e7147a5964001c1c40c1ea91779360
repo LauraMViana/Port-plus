@@ -1,0 +1,59 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: menu}"></div>
+	<div class="container right">
+		<!-- ajeitar para ficar igual icone com o nome -->
+		<div class="cabecalho">
+			<h6>
+				<i class="material-icons col s2"> import_contacts</i> <span
+					class="col s10" th:text="${curso.titulo}"></span>
+			</h6>
+			<h4>
+				<span th:text="${modulo.tituloMod}"></span>
+			</h4>
+		</div>
+
+		<!-- Procurar como usar o link que pega na barra do nav pq so ta aparecendo quando pega em compartilhar-->
+
+		<div class="conteudo" th:each="mt: ${mat}">
+			<p th:text="${mt.conteudo}"></p>
+			<iframe width="650" height="365 "
+				th:src="@{{video} (video=${mt.video})}" frameborder="0"
+				allowfullscreen> </iframe>
+		</div>
+
+		<aside>
+			<div class="card lista">
+				<span class="card-title" th:text="${modulo.tituloMod}">Nome
+					do Modulo</span>
+			</div>
+			<div class="lista" th:each="mt: ${material}">
+
+				<ul>
+					<li th:if="${mt.conteudo == null}"><i class="material-icons">play_circle_outline</i>
+						<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo}, idMod=${modulo.id}, tituloMod=${modulo.tituloMod},idMat=${mt.id}, tituloMat=${mt.tituloMat})}">
+							<span th:text="${mt.tituloMat}"></span>
+					</a></li>
+					<li th:if="${mt.video == null}"><i class="material-icons">book</i>
+						<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo}, idMod=${modulo.id}, tituloMod=${modulo.tituloMod},idMat=${mt.id}, tituloMat=${mt.tituloMat})}">
+							<span th:text="${mt.tituloMat}"></span>
+					</a></li>
+				</ul>
+			</div>
+		</aside>
+	</div>
+</body>
+</html>

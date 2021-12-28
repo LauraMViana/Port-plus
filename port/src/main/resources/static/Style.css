@@ -87,10 +87,25 @@ body {
 	float: left;
 }
 
+.login p {
+	color: #6c7293;
+	font-weight: 500;
+	margin-left: 35px;
+	margin-top: 10px;
+	font-size: 13.5px;
+	background-color: white;
+	padding: 10px;
+	border-radius: 25px;
+	padding-left: 35px;
+	width: 80px;
+	float: right;
+	cursor: pointer;
+}
+
 .profile {
 	display: inline-block;
 	float: right;
-	width: 200px;
+	width: 160px;
 }
 
 .pro-img {
@@ -119,7 +134,7 @@ body {
 
 .profile-div {
 	background-color: white;
-	width: 140px;
+	width: 160px;
 	border: 1px solid #ddd;
 	padding: 10px 0px;
 	right: 2%;
@@ -467,13 +482,663 @@ tr:nth-child(even) {
 	transform: rotate(126deg);
 }
 
-@keyframes fill {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(126deg);
-  }
+@
+keyframes fill { 0% {
+	transform: rotate(0deg);
+}
+
+100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
+{
+transform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:rotate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+126deg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+}
 }
 .circle-wrap .inside-circle {
 	width: 130px;
@@ -492,60 +1157,101 @@ tr:nth-child(even) {
 }
 
 /* Thais */
-p {
-	text-align: justify;
-	word-break: keep-all;
+h1 {
+	font-weight: 400;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	color: #6c7293;
+	font-size: calc(1.044375rem + 1.7325vw);
 }
 
-span {
-	color: black;
+h4, h6 {
+	font-weight: 100;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	color: #6c7293;
+	font-size: 30px;
+	margin: 0px;
 }
 
-/* botao da foto "criarCurso.html" */
-div.btn {
-	padding: 0px 0px 0px 0px;
-	height: 101px;
-	width: 146px;
+a {
+	text-decoration: none;
 }
 
-/* Barra de navegação*/
-.brand-logo {
-	text-align: center;
-	text-decoration: strong;
-	margin-top: 50px;
+#btn {
+	text-align: right;
 }
 
-.sidenav.sidenav-fixed {
-	background-color: #1565c0;
+/*Apresente material  */
+.mod-title {
+	font-size: 30px;
+	color: #d8d8d8;
 }
 
-.sidenav li>a {
-	color: white;
-}
-
-.sidenav li>a>i.material-icons {
-	color: white;
-}
-
-.card-panel {
-	padding: 0px;
-	height: 64px;
-	width: 240px;
-	border-top-left-radius: 30px;
-	border-bottom-left-radius: 30px;
-}
-
-/* Pagina dos modulos */
-div.row {
-	margin-right: 84px;
-}
-
-div.card.small {
+/* Index  */
+.box-mod {
+	width: 88%;
 	height: 250px;
+	background-color: #ffffff;
+	margin-left: 10px;
+	padding: 10px;
+	box-shadow: 2px 5px 10px #ddd;
+	position: relative;
 }
 
-span.card-title {
-	text-align: center;
+.box-mod-footer {
+	width: 88%;
+	height: 30px;
+	margin-left: 10px;
+	box-shadow: 2px 5px 10px #ddd;
+	position: relative;
+	padding: 10px;
+	background-color: rgba(0, 0, 0, .3);
+	border-top: 1px solid #d7dfe3;
+}
+
+.pull-right {
+	float: center;
+}
+
+/* blocos de curso ou modulos  */
+.col-div-4-2 {
+	width: 25%;
+	float: left;
+}
+
+.image {
+	display: block;
+	position: relative;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	max-height: 70%;
+	overflow: hidden;
+	max-height: 70%;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.card {
+	margin-left: 10px;
+	box-shadow: 2px 5px 10px #ddd;
+	position: relative;
+	height: 250px;
+	background-color: #fff;
+	-webkit-transition: -webkit-box-shadow .25s;
+	transition: -webkit-box-shadow .25s;
+	transition: box-shadow .25s;
+	transition: box-shadow .25s, -webkit-box-shadow .25s;
+	border-radius: 2px;
+}
+/* descriçao do curso  */
+.mod-d {
+	font-size: 18px !important;
+	margin: 10px 0px;
+	color: #6c7293;
+	text-align: justify;
 }
 
 /* Pag apresentação Material */
@@ -557,33 +1263,302 @@ aside {
 }
 
 div.conteudo {
-	width: 650px;
+	width: 700;
 	float: left;
-	height: 365px;
+	height: 415px;
 }
 
-div.card.lista {
-	background-color: #1565C0;
-	width: 258px;
-	margin-top: 0px;
+.card.lista {
+	background-color: #5643ff;
+	width: 259.5px;
 	height: 50px;
 	text-align: center;
 	padding: 5px 0px 5px 0px;
 	margin: 0px;
 }
 
-div.lista li {
-	padding-top: 15px;
-	padding-right: 15px;
+.lista li {
+	padding: 15px 8px 15px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	color: #d8d8d8;
+	display: block;
 	text-align: justify;
 }
 
-div.lista ul {
-	margin-left: 15px;
-	margin-top: 0px;
+.lista li:hover {
+	color: #f1f1f1;
+	background-color: #5643ff;
 }
 
-/* Add material  */
+.lista a:hover {
+	color: #f1f1f1;
+	background-color: #5643ff;
+}
+
+ul {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+textarea.materialize-textarea.texto{
+	height: 12rem;
+}
+
+input:not([type]), input[type="text"]:not(.browser-default), input[type="url"]:not(.browser-default),
+	input[type="number"]:not(.browser-default), textarea.materialize-textarea
+	{
+	background-color: transparent;
+	border-top-width: initial;
+	border-right-width: initial;
+	border-left-width: initial;
+	border-top-color: initial;
+	border-right-color: initial;
+	border-left-color: initial;
+	height: 3rem;
+	width: 100%;
+	font-size: 16px;
+	box-shadow: none;
+	box-sizing: content-box;
+	border-style: none none solid;
+	border-image: initial;
+	border-bottom: 1px solid rgb(158, 158, 158);
+	border-radius: 0px;
+	outline: none;
+	margin: 0px 0px 8px;
+	padding: 0px;
+	transition: box-shadow 0.3s ease 0s, border 0.3s ease 0s,
+		-webkit-box-shadow 0.3s ease 0s;
+}
+
+form {
+	padding-left: 50px;
+}
+
+.dados-do-curso, .listarCriarMod {
+	padding-left: 50px;
+}
+
+.s2 {
+	width: 20%;
+	display: inline;
+}
+
+.col.s3 {
+	width: 25%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.col.s4 {
+	width: 33.3333333333%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.col.s5 {
+	width: 41.6666666667%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.col.s6 {
+	width: 50%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.col.s9 {
+	width: 75%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.col.s12 {
+	width: 100%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.col {
+	float: left;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 0.75rem;
+	min-height: 1px;
+}
+
+.s10 {
+	width: 80%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
+}
+
+.btn {
+	text-decoration: none;
+	color: #fff;
+	background-color: #26a69a;
+	text-align: center;
+	letter-spacing: .5px;
+	-webkit-transition: background-color .2s ease-out;
+	transition: background-color .2s ease-out;
+	cursor: pointer;
+	border: none;
+	border-radius: 2px;
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 16px;
+	text-transform: uppercase;
+	font-size: 14px;
+	outline: 0;
+	font-size: 14px;
+}
+
+.waves-effect {
+	position: relative;
+	cursor: pointer;
+	display: inline-block;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	vertical-align: middle;
+	z-index: 1;
+	-webkit-transition: .3s ease-out;
+	transition: .3s ease-out;
+}
+
+.modal.modal-fixed-footer {
+	padding: 0;
+	height: 70%;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color: #fafafa;
+	padding: 0;
+	max-height: 70%;
+	width: 55%;
+	margin: auto;
+	overflow-y: auto;
+	border-radius: 2px;
+	will-change: top, opacity;
+}
+
+.modal.modal-fixed-footer {
+	padding: 0;
+	height: 70%;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	left: 0;
+	right: 0;
+	background-color: #fafafa;
+	padding: 0;
+	max-height: 70%;
+	width: 55%;
+	margin: auto;
+	overflow-y: auto;
+	border-radius: 2px;
+	will-change: top, opacity;
+}
+
+.z-depth-5, .modal {
+	-webkit-box-shadow: 0 24px 38px 3px rgb(0 0 0/ 14%), 0 9px 46px 8px
+		rgb(0 0 0/ 12%), 0 11px 15px -7px rgb(0 0 0/ 20%);
+	box-shadow: 0 24px 38px 3px rgb(0 0 0/ 14%), 0 9px 46px 8px
+		rgb(0 0 0/ 12%), 0 11px 15px -7px rgb(0 0 0/ 20%);
+}
+
+.collapsible {
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	margin: 0.5rem 0 1rem 0;
+}
+
+.collapsible-header {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-tap-highlight-color: transparent;
+	line-height: 1.5;
+	padding: 1rem;
+	background-color: #fff;
+	border-bottom: 1px solid #ddd;
+}
+
+.optCont {
+	display: inline-block;
+	float: right;
+	width: 160px;
+}
+
+.optCont a {
+	cursor: pointer;
+}
+
+.opt {
+	background-color: white;
+	width: 100px;
+	border: 1px solid #ddd;
+	padding: 10px 0px;
+	right: 10%;
+	border-radius: 5px;
+	position: absolute;
+	z-index: 9;
+	display: none;
+}
+
+.opt p {
+	margin: 0px;
+	padding: 10px 20px;
+}
+
+.opt p:hover {
+	margin: 0px;
+	padding: 10px 20px;
+	background-color: #5643ff;
+	border-radius: 0px;
+	color: white;
+}
+
+.modal.modal-fixed-footer {
+	height: 40%;
+	width: 40%;
+}
+
+.modal .modal-content {
+	padding: 65px 24px 24px 75px;
+}
+
+/* 
+botao da foto "criarCurso.html "
+div.btn {
+	padding: 0px 0px 0px 0px;
+	height: 101px;
+	width: 146px;
+}
+
+
+Add material 
 div.addConteudo {
 	width: 500px;
 	margin: 25px 345px 0px 0px;
@@ -598,7 +1573,7 @@ div.addVideo {
 	margin: 125px 345px 0px 0px;
 }
 
-/* criar modulo */
+criar modulo
 .col.s5 {
 	padding: 0px;
 }
@@ -607,17 +1582,9 @@ div.addVideo {
 	padding: 0px;
 }
 
-.modal.modal-fixed-footer {
-	height: 40%;
-	width: 40%;
-}
 
-.modal .modal-content {
-	padding: 65px 24px 24px 75px;
-}
-
-/* meus cursos */
+meus cursos
 .card-title.meuscursos {
 	font-size: medium;
 	text-align: center;
-}
+} */
