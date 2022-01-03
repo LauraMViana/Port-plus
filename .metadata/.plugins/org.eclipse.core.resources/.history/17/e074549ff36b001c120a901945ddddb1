@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS <!--  -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Style.css">
+<title>Port+</title>
+</head>
+<body>
+	<!-- <div th:insert="~{sideNav :: menu}"></div>
+	<div class="container right">
+		<div class="row">
+			<div class="col s12 m6 l3" th:each="c : ${cursos}">
+				<div class="card">
+					<div class="card-content">
+						<table>
+							<tr>
+								<th>Titulo:</th>
+								<td th:text="${c.titulo}"></td>
+							</tr>
+						</table>
+						<div class="card-action">
+							<a class="waves-effect waves-light btn"
+								th:href="@{/portPlus/meusCursos/{id}/{titulo}(id=${c.id}, titulo=${c.titulo})}">Entrar</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	
+	<div class="row dup ap">
+							<h6>Módulos:</h6>
+							<ul class="collapsible popoute" th:each="md:${modulos}">
+								<li>
+									<div class="collapsible-header">
+										<i class="material-icons">toc</i>
+										<div class="col s10" th:text="${md.tituloMod}"></div>
+										<div>
+											<a class="dropdown-trigger btn" href=""
+												data-target="dropdown1"><i class="material-icons">add</i></a>
+											<ul id="dropdown1" class='dropdown-content'>
+												<li><a
+													th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarVideo (idC=${curso.id}, idMod=${md.id})}">Vídeo</a></li>
+												<li><a
+													th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarConteudo (idC=${curso.id}, idMod=${md.id})}">Conteúdo</a></li>
+											</ul>
+										</div>
+										<div>
+											<a class="btn waves-effect waves-light"
+												th:href="@{/portPlus/criarCurso/{idC}/{idMod}/Apagar (idC=${curso.id}, idMod=${md.id})}"><i
+												class="material-icons">delete</i> </a>
+										</div>
+									</div>
+									<div class="collapsible-body" th:each="mt:${material}">
+										<table>
+											<tr>
+												<td class="col s2"><i class="material-icons">book</i></td>
+												<td class="col s8" th:text="${mt.tituloMat}"></td>
+												<td class="col s2"><a href="#"
+													class="small material-icons" type="button">delete</a></td>
+											</tr>
+										</table>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="right-align bnt">
+							<a href="/portPlus/meusCursos"
+								class="btn waves-effect waves-light align-center">concluído</a>
+						</div>
+</body>
+</html>

@@ -2,10 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<!-- Compiled and minified CSS -->
-<!-- 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="stylesheet" href="/Style.css">
@@ -14,8 +10,9 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:insert="~{menu :: menu}"></div>
+		<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
 		<h6>
 			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
 				th:text="${modulo.tituloMod}"></span>
@@ -27,7 +24,7 @@
 			<div class="input-field col s10">
 				<label for="tituloM">Título do material</label><input
 					placeholder="Digite o título do material" id="tituloM" type="text"
-					pattern="[a-zA-Z0-9_?!&%$()-]+" class="validate"
+					pattern="[a-zA-Z0-9_?!&%$()- ]+" class="validate"
 					th:field="${material.tituloMat}">
 				<p th:errors="${material.tituloMat}"></p>
 				<div>

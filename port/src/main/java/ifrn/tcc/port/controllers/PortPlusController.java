@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ifrn.tcc.port.Models.Curso;
 import ifrn.tcc.port.Models.Material;
@@ -32,14 +33,10 @@ import ifrn.tcc.port.repositories.ModuloRepository;
 @Controller
 @RequestMapping("/portPlus")
 public class PortPlusController {
-	// juntar o materialize com o bootStrap
-	// outra forma de rodar o link do youtube so funciona com <embed>
-	// nao estar mostrando as atividades na pag criar modulo// é realmente
-	// necessario??
-	// inscrever-se e "postar curso" --> vai ter um botao ou vai ser pelo titulo??
 
 //Caminho para salvar a logotipo do curso
 	private static String caminhologotipoCurso = "src/main/resources/static/Imagens/";
+
 	@Autowired
 	private CursoRepository cr;
 
@@ -92,7 +89,6 @@ public class PortPlusController {
 	}
 
 // Dados do curso que foram preenchidos na pag anterior, criação  e listagem dos modulos
-// nao ta listando os materias :/
 	@GetMapping("/criarCurso/{idC}")
 	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo) {
 		ModelAndView md = new ModelAndView();
@@ -177,6 +173,20 @@ public class PortPlusController {
 		mtr.save(material);
 		mv.setViewName("redirect:/portPlus/criarCurso/{idC}");
 		return mv;
+	}
+
+//Concluir a criacao do curso
+	@GetMapping("/criarCurso/{idC}/concluir")
+	public String concluir(@PathVariable Long idC, Long idMod, RedirectAttributes attributes) {
+		Optional<Curso> opt = cr.findById(idC);
+		Curso curso = opt.get();
+		List<Modulo> md = mr.findByCurso(curso);
+		if (md.isEmpty()) {
+			attributes.addFlashAttribute("mensagem", "Adicione um módulo ao curso!");
+			return "redirect:/portPlus/criarCurso/{idC}";
+		}
+
+		return "redirect:/portPlus";
 	}
 
 //Lista De Cursos Disponivel 

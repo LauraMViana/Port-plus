@@ -10,8 +10,9 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:insert="~{menu :: menu}"></div>
+	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
 		<h6>
 			<i class="material-icons"> import_contacts</i> <span
 				th:text="${curso.titulo}"></span>

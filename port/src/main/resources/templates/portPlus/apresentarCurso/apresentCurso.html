@@ -2,10 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<!-- Compiled and minified CSS -->
-<!-- 
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link rel="stylesheet" href="/style.css" type="text/css" />
@@ -14,23 +10,27 @@
 <title>PortPlus</title>
 </head>
 <body>
-	<div th:insert="~{menu :: menu}"></div>
+	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
 		<h1 th:text="${curso.titulo}"></h1>
 		<p class="mod-d" th:text="${curso.descricao}"></p>
 		<div class="col-div-4-2" th:each="md:${modulo}">
-			<div class="card">
-				<div class="image">
-					<a
-						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
-						<img src="/imagens/azul.png">
-					</a>
+			<div class="card-action">
+				<div class="card small">
+					<div class="card-image">
+						<a
+							th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+							<img src="/imagens/azul.png">
+						</a>
+					</div>
+					<div class="card-content">
+						<a
+							th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+							<span class="card-title-mod " th:text="${md.tituloMod}"></span>
+						</a>
+					</div>
 				</div>
-				<a
-					th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
-					<span class="mod" th:text="${md.tituloMod}"></span>
-				</a>
-
 			</div>
 		</div>
 	</div>

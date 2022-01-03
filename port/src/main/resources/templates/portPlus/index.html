@@ -2,22 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/style.css" type="text/css" />
+<link rel="stylesheet" href="/style.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Port+</title>
 </head>
 <body>
-	<div th:insert="~{menu :: menu}"></div>
+	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
-		<div class="clearfix"></div>
-		<br />
+		<div th:insert="~{menu :: navbar}"></div>
 		<div class="col-div-4-1" th:each="c : ${cursos}">
 			<div class="box">
 				<p class="head-1" th:text="${c.titulo}"></p>
 				<img class="pro-imag"
 					th:src="@{/portPlus/{imagem} (imagem=${c.nomeLogo})}" width="300"
-					height="200 " />
+					height="200" />
 				<p>
 					<strong>Conteúdo: <span th:text="${c.conteudo}"></span></strong>
 				</p>
@@ -29,14 +28,17 @@
 				<p>
 					<strong>Público-alvo: <span th:text="${c.publicalvo}"></span></strong>
 				</p>
-				<a
-					th:href="@{/portPlus/meusCursos/{id}/{titulo}(id=${c.id}, titulo=${c.titulo})}">Inscrever-se</a>
+				</a>
 			</div>
-			<div class="card-footer">
-				<div class="pull-right">
+			<div class="box-mod">
+				<p sec:authorize="isAuthenticated()">
 					<a
-						th:href="@{/portPlus/meusCursos/{id}/{titulo}(id=${c.id}, titulo=${c.titulo})}">Inscrever-se</a>
-				</div>
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo} (idC=${c.id}, titulo=${c.titulo})}">ACESSAR</a>
+				</p>
+				<p sec:authorize="!isAuthenticated()">
+					<a th:href="@{/portPlus/login}">INSCREVER-SE</a>
+				</p>
+
 			</div>
 		</div>
 	</div>

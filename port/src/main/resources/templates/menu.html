@@ -8,7 +8,8 @@
 <title>Port+</title>
 </head>
 <body>
-	<div th:fragment="menu">
+	<div th:fragment="navside">
+
 		<div id="mySidenav" class="sidenav">
 			<p class="logo">
 				Port+ <span class="menu">&#9776;</span>
@@ -16,30 +17,34 @@
 			<p class="logo1">
 				<span class="menu1">&#9776;</span>
 			</p>
-			<a href="/" class="icon-a"> <i class="fa fa-dashboard icons"></i>
+			<!-- <a href="/" class="icon-a"> <i class="fa fa-dashboard icons"></i>
 				&nbsp;&nbsp;Painel
-			</a> <a href="/" class="icon-a"><i class="fa fa-list icons"></i>
-				&nbsp;&nbsp;Menu</a> <a href="#" class="icon-a"><i
+			</a> -->
+			<a sec:authorize="isAuthenticated()" href="/" class="icon-a"><i
+				class="fa fa-list icons"></i> &nbsp;&nbsp;Menu</a> <a
+				sec:authorize="isAuthenticated()" href="#" class="icon-a"><i
 				class="fa fa-user icons"></i> &nbsp;&nbsp;Perfil</a> <a
-				href="/portPlus/criarCurso" class="icon-a"><i
-				class="fa fa-edit icons"></i> &nbsp;&nbsp;Meus Cursos(A)</a> <a
-				href="/portPlus/criarCurso" class="icon-a"><i
-				class="fa fa-edit icons"></i> &nbsp;&nbsp;Criar Curso(I)</a><a
+				sec:authorize="isAuthenticated()" href="/portPlus/criarCurso"
+				class="icon-a"><i class="fa fa-edit icons"></i>
+				&nbsp;&nbsp;Criar Curso(I)</a><a sec:authorize="isAuthenticated()"
 				href="/portPlus/meusCursos" class="icon-a"><i
 				class="fa fa-list-alt icons"></i> &nbsp;&nbsp;Submeter curso(I)</a>
 		</div>
+	</div>
 
-		<div id="main">
+	<div id="main">
+		<div th:fragment="navbar">
 			<div class="head">
 				<div class="col-div-6">
 					<p class="nav">Painel</p>
 				</div>
 				<div class="col-div-6">
-					<div class="profile">
+					<div sec:authorize="isAuthenticated()" class="profile">
 						<img src="/Imagens/usuario.png" class="pro-img circle" />
-						<p>
+						<p sec:authentication="name">
 							Instrutor <i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
 						</p>
+
 						<div class="profile-div">
 							<p>
 								<a href="#" class="icon-a"><i class="fa fa-user"></i>
@@ -51,10 +56,10 @@
 						</div>
 					</div>
 					<div class="login">
-						<p>
+						<p sec:authorize="!isAuthenticated()">
 							<a href="/portPlus/login">LOGIN</a>
 						</p>
-						<p>
+						<p sec:authorize="!isAuthenticated()">
 							<a href="/portPlus/signup">SIGNUP</a>
 						</p>
 					</div>

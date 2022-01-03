@@ -1,0 +1,22 @@
+package ifrn.tcc.port.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+
+import ifrn.tcc.port.service.CustomUserDetailsService;
+
+@Configuration
+public class SecurityConfig {
+
+	@Autowired
+	private CustomDetailsService customDetailsService;
+
+	@Autowired
+	public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
+		builder.userDetailsService(customDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+	}
+
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+}

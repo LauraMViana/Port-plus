@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<!-- Compiled and minified CSS -->
+<!-- Compiled and minified CSS <!--  -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -11,7 +11,7 @@
 <title>Port+</title>
 </head>
 <body>
-	<div th:insert="~{sideNav :: menu}"></div>
+	<!-- <div th:insert="~{sideNav :: menu}"></div>
 	<div class="container right">
 		<div class="row">
 			<div class="col s12 m6 l3" th:each="c : ${cursos}">
@@ -31,6 +31,48 @@
 				</div>
 			</div>
 		</div>
+	</div> -->
+
+	<div class="row dup ap">
+		<h6>Módulos:</h6>
+		<ul class="collapsible popoute">
+			<li>
+				<div class="collapsible-header">
+					<i class="material-icons">toc</i>
+					<div class="col s10">titulo</div>
+					<div>
+						<a class="dropdown-trigger btn" href="" data-target="dropdown1"><i
+							class="material-icons">add</i></a>
+						<ul id="dropdown1" class='dropdown-content'>
+							<li><a>Vídeo</a></li>
+							<li><a>Conteúdo</a></li>
+						</ul>
+					</div>
+					<div>
+						<a class="btn waves-effect waves-light"><i
+							class="material-icons">delete</i> </a>
+					</div>
+					<div>
+						<a class="btn waves-effect waves-light"><i
+							class="material-icons">delete</i> </a>
+					</div>
+				</div>
+				<div class="collapsible-body" th:each="mt:${material}">
+					<table>
+						<tr>
+							<td class="col s2"><i class="material-icons">book</i></td>
+							<td class="col s8">sei la</td>
+							<td class="col s2"><a href="#" class="small material-icons"
+								type="button">delete</a></td>
+						</tr>
+					</table>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div class="right-align bnt">
+		<a href="/portPlus/meusCursos"
+			class="btn waves-effect waves-light align-center">concluído</a>
 	</div>
 </body>
 </html>

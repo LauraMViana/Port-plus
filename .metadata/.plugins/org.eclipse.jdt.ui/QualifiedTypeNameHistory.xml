@@ -12,7 +12,6 @@
     <fullyQualifiedTypeName name="ifrn.tcc.port.Models.Test"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-    <fullyQualifiedTypeName name="ifrn.tcc.port.Models.Modulo"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
     <fullyQualifiedTypeName name="org.hibernate.validator.constraints.Length"/>
@@ -33,7 +32,14 @@
     <fullyQualifiedTypeName name="java.nio.file.Files"/>
     <fullyQualifiedTypeName name="java.nio.file.Path"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="org.springframework.security.web.bind.annotation.AuthenticationPrincipal"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.annotation.AuthenticationPrincipal"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.context.SecurityContextHolder"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+    <fullyQualifiedTypeName name="org.apache.tomcat.util.net.openssl.ciphers.Authentication"/>
+    <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
+    <fullyQualifiedTypeName name="ifrn.tcc.port.Models.Usuario"/>
+    <fullyQualifiedTypeName name="ifrn.tcc.port.Models.Modulo"/>
 </qualifiedTypeNameHistroy>

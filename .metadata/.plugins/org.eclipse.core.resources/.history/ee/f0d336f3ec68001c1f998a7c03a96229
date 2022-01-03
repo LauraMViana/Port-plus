@@ -1,0 +1,5 @@
+package ifrn.tcc.port.config;
+
+public class SecurityConfig {
+
+}

@@ -1,0 +1,21 @@
+package ifrn.tcc.port.config;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+@Configuration
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests().antMatchers("/portPlus").permitAll().antMatchers("/portPlus/signup").permitAll()
+//				.antMatchers("/").hasRole("ALUNO")
+//				.antMatchers("/").hasRole("INSTRUTOR")
+				.antMatchers("/Stylee.css", "/Style.css", "/static/Imagens/").permitAll()
+//				.anyRequest()
+//				.authenticated()
+				.and().formLogin(form -> form.loginPage("/portPlus/login").defaultSuccessUrl("/", true).permitAll())
+				.csrf().disable();
+	}
+}

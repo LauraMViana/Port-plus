@@ -6,23 +6,23 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="materi"/>
+		<item key="selection" value="card"/>
 		<list key="findhistory">
-			<item value="materi"/>
-			<item value="matera"/>
-			<item value="mater"/>
-			<item value="h1"/>
+			<item value="card"/>
+			<item value="inde"/>
+			<item value="in"/>
+			<item value="meus"/>
+			<item value="name"/>
+			<item value="login"/>
+			<item value="cursor: pointer;"/>
+			<item value="    cursor: pointer;"/>
+			<item value="la"/>
+			<item value="labe"/>
+			<item value="lab"/>
+			<item value="pa"/>
 			<item value="sair"/>
-			<item value="pro"/>
-			<item value="p"/>
-			<item value="&lt;/div&gt;"/>
-			<item value="dado"/>
-			<item value="dados"/>
-			<item value="act"/>
-			<item value="h6"/>
-			<item value="form"/>
-			<item value="mód"/>
-			<item value="mó"/>
+			<item value="image"/>
+			<item value="imagen"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -33,5 +33,9 @@
 		<item key="DIALOG_WIDTH" value="284"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="447"/>
+		<item key="DIALOG_Y_ORIGIN" value="240"/>
 	</section>
 </section>

@@ -11,6 +11,38 @@
 <title>PortPlus</title>
 </head>
 <body>
+
+// inscrever-se e "postar curso"
+
+//	public String getUsuarioLogado(Usuario usuario) {
+//		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//
+//		String nome;
+//
+//		if (principal instanceof UserDetails) {
+//			nome = ((UserDetails) principal).getUsername();
+//
+//		} else {
+//			nome = principal.toString();
+//		}
+//
+//		return nome;
+//
+//	}
+
+////	inscriçao no curso
+//	@GetMapping("/{idC}/{titulo}/inscrever-se")
+//	public String inscricao(@PathVariable Long idC, @PathVariable String titulo, Usuario usuario) {
+//		Optional<Curso> opt = cr.findById(idC);
+//		Curso curso = opt.get();
+////		usuario.setCursos(List <Curso> cursos);
+////		ur.save(usuario);
+//		System.out.println(getUsuarioLogado(usuario));
+//
+//		return "redirect:/portPlus/meusCursos/{idC}/{titulo}";
+//		
+//	}
+
 	<div th:insert="~{sideNav :: menu}"></div>
 	<div class="container right">
 
