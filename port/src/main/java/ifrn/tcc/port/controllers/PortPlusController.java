@@ -57,6 +57,17 @@ public class PortPlusController {
 	public String signup() {
 		return "portPlus/signup";
 	}
+//Após login acessar o perfil do aluno 
+	@GetMapping("/perfil1")
+	public String acessarPerfil1() {
+		return "portPlus/mostrarPerfil/perfil1";
+	}
+	
+//Após login acessar o perfil do adm
+	@GetMapping("/perfil2")
+	public String acessarPerfil2() {
+		return "portPlus/mostrarPerfil/perfil2";
+	}
 
 //	Acessar o form de dados gerais do curso
 	@GetMapping("/criarCurso")
