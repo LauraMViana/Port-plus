@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Login e Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="inner-box" id="card">
+                <div class="card-front">
+                    <h2>Login</h2>
+                    <form>
+                        <input type="email" class="input-box" placeholder="Email" required>
+                        <input type="password" class="input-box" placeholder="Senha" required>
+                        <button type="submit" class="submit-btn" id="botao">Login</button>
+                        <input type="checkbox"><span>Manter-me conectado</span>
+                    </form>
+                    <button type="button" class="btn" onclick="openCadastrar()">Sou novo aqui</button>
+                    <a href="">Esqueci a senha</a>
+                </div>
+                <div class="card-back">
+                    <h2>Cadastrar</h2>
+                    <form>
+                        <input type="text" class="input-box" placeholder="Seu nome" required>
+                        <input type="email" class="input-box" placeholder="Email" required>
+                        <input type="password" class="input-box" placeholder="Senha" required>
+                        <button type="submit" class="submit-btn">Cadastrar</button>
+                        <input type="checkbox"><span>Manter-me conectado</span>
+                    </form>
+                    <button type="button" class="btn" onclick="openLogin()">Já tenho uma conta</button>
+                    <a href="">Esqueci a senha</a>  
+                </div>
+            </div>
+        </div>
+    </div> 
+
+        <script>
+            var card = document.getElementById("card");
+
+            function openCadastrar(){
+                document.getElementById('botao').style.display ='none'
+                card.style.transform = "rotateY(-180deg)";
+            }
+            function openLogin(){
+                card.style.transform = "rotateY(0deg)";
+                document.getElementById('botao').style.display ='inline'
+            }
+
+        </script>
+</body>
+</html>
