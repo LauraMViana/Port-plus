@@ -75,7 +75,7 @@
 				<li>
 					<div class="collapsible-header">
 						<i class="material-icons">toc</i>
-						<div class="col s10">titulo</div>
+						<div class="col s10" th:text="*{md.tituloMod}">titulo</div>
 						<div>
 							<a class="btn waves-effect waves-light mod"
 								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarVideo (idC=${curso.id}, idMod=${md.id})}">
