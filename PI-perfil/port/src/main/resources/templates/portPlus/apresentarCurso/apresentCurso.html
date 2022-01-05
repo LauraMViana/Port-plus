@@ -1,0 +1,74 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Styles/style.css" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: navside}"></div>
+	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
+		<h1 th:text="${curso.titulo}"></h1>
+		<p class="mod-d" th:text="${curso.descricao}"></p>
+		<div class="col-div-4-2" th:each="md:${modulo}">
+			<div class="card-action">
+				<div class="card small">
+					<div class="card-image">
+						<a
+							th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+							<img src="/imagens/azul.png">
+						</a>
+					</div>
+					<div class="card-content">
+						<a
+							th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+							<span class="card-title-mod " th:text="${md.tituloMod}"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile p").click(function() {
+				$(".profile-div").toggle();
+			});
+		});
+	</script>
+</body>
+</html>

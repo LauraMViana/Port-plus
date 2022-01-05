@@ -1,0 +1,89 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Styles/style.css" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: navside}"></div>
+	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
+		<div>
+			<h6>
+				<i class="material-icons"> import_contacts</i> <span
+					th:text="${curso.titulo}"></span>
+			</h6>
+			<h4>
+				<span th:text="${modulo.tituloMod}"></span>
+			</h4>
+		</div>
+		<div class="conteudo" th:each="mt: ${mat}">
+			<p th:text="${mt.conteudo}"></p>
+			<iframe width="700" height="415"
+				th:src="@{{video} (video=${mt.video})}" frameborder="0"
+				allowfullscreen> </iframe>
+		</div>
+		<aside>
+			<div class="card lista">
+				<span class="mod-title" th:text="${modulo.tituloMod}">Nome do
+					Modulo</span>
+			</div>
+			<div class="lista" th:each="mt: ${material}">
+				<ul>
+					<li th:if="${mt.conteudo == null}"><i class="material-icons">play_circle_outline</i>
+						<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo}, idMod=${modulo.id}, tituloMod=${modulo.tituloMod},idMat=${mt.id}, tituloMat=${mt.tituloMat})}">
+							<span th:text="${mt.tituloMat}"></span>
+					</a></li>
+					<li th:if="${mt.video == null}"><i class="material-icons">book</i>
+						<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}/{idMat}/{tituloMat} (idC=${curso.id}, titulo=${curso.titulo}, idMod=${modulo.id}, tituloMod=${modulo.tituloMod},idMat=${mt.id}, tituloMat=${mt.tituloMat})}">
+							<span th:text="${mt.tituloMat}"></span>
+					</a></li>
+				</ul>
+			</div>
+		</aside>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile p").click(function() {
+				$(".profile-div").toggle();
+			});
+		});
+	</script>
+</body>
+</html>
