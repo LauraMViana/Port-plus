@@ -38,7 +38,7 @@
 		<div th:fragment="navbar">
 			<div class="head">
 				<div class="col-div-6">
-					<p class="nav">Painel</p>
+					<p class="nav"></p>
 				</div>
 				<div class="col-div-6">
 					<div sec:authorize="isAuthenticated()" class="profile">
@@ -49,12 +49,14 @@
 
 						<div class="profile-div">
 							<p>
-								<a href="#" class="icon-a"><i class="fa fa-user"></i>
-									&nbsp;&nbsp;Perfil 
+								<a href="/portPlus/perfil" class="icon-a"><i
+									class="fa fa-user"></i> &nbsp;&nbsp;Perfil 
 							</p>
 							<p>
-								<i class="fa fa-power-off"></i> &nbsp;&nbsp;Sair
+								<a href="/portPlus/logout" class="icon-a"><i
+									class="fa fa-power-off"></i> &nbsp;&nbsp;Sair 
 							</p>
+
 						</div>
 					</div>
 					<div class="login">
@@ -62,7 +64,7 @@
 							<a href="/portPlus/login">LOGIN</a>
 						</p>
 						<p sec:authorize="!isAuthenticated()">
-							<a href="/portPlus/signup">SIGNUP</a>
+							<a href="/portPlus/cadastrar">SIGNUP</a>
 						</p>
 					</div>
 				</div>

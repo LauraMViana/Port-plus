@@ -13,7 +13,7 @@
 			<div class="inner-box-login" id="card">
 				<div class="card-front-login">
 					<h2>Login</h2>
-					<form action="" method="post">
+					<form method="post">
 						<input type="email" class="input-box-login" placeholder="Email"
 							name="username" required> <input type="password"
 							class="input-box-login" placeholder="Senha" name="password"
@@ -29,12 +29,19 @@
 				</div>
 				<div class="card-back-login">
 					<h2>Cadastrar</h2>
-					<form>
+					<form th:action="@{/portPlus/cadastrar}" method="post"
+						th:object="${usuario}">
 						<input type="text" class="input-box-login" placeholder="Seu nome"
-							required> <input type="email" class="input-box-login"
-							placeholder="Email" required> <input type="password"
-							class="input-box-login" placeholder="Senha" required>
-						<button type="submit" class="submit-btn-login">Cadastrar</button>
+							th:field="*{nome}" required> <input type="email"
+							class="input-box-login" placeholder="Email" th:field="*{email}"
+							required> <input type="password"
+							class="input-box-login" placeholder="Senha" th:field="*{senha}"
+							required>
+
+						<!-- $2a$10$7TyHyq1wHvKB7SPGR7FtCeteEfWUv55SBBEy5gcDPaLXd5nN7peje
+ -->
+						<button type="submit"
+					name="action" class="submit-btn-login">Cadastrar</button>
 						<input type="checkbox"><span class="login">Manter-me
 							conectado</span>
 					</form>

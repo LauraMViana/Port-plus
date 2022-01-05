@@ -8,9 +8,14 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +31,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ifrn.tcc.port.Models.Curso;
 import ifrn.tcc.port.Models.Material;
 import ifrn.tcc.port.Models.Modulo;
+import ifrn.tcc.port.Models.Usuario;
 import ifrn.tcc.port.repositories.CursoRepository;
 import ifrn.tcc.port.repositories.MaterialRepository;
 import ifrn.tcc.port.repositories.ModuloRepository;
+import ifrn.tcc.port.repositories.UsuarioRepository;
 
 @Controller
 @RequestMapping("/portPlus")
@@ -46,10 +53,37 @@ public class PortPlusController {
 	@Autowired
 	private MaterialRepository mtr;
 
-	// Login
+	@Autowired
+	private UsuarioRepository ur;
+
+// Login
 	@GetMapping("/login")
-	public String login() {
+	public String login(Usuario usuario) {
 		return "portPlus/login";
+	}
+
+//Logout
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+
+		return "redirect:/portPlus";
+	}
+
+//cadastro
+	@GetMapping("/cadastrar")
+	public String cadastro(Usuario usuario) {
+		return "portPlus/login";
+	}
+
+//CadastroU
+	@PostMapping("/cadastrar")
+	public String CadastroU(Usuario usuario) {
+		ur.save(usuario);
+		return "redirect:/portPlus";
 	}
 
 //Perfil do usuario(dados pessoais)

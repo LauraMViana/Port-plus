@@ -16,12 +16,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/portPlus").permitAll()
-				.antMatchers("/perfil").hasRole("ALUNO")
-				.antMatchers("/portPlus/criarCurso/**", "/perfil").hasRole("INSTRUTOR")
-				.anyRequest().authenticated().and()
-				.formLogin(form -> form.loginPage("/portPlus/login").defaultSuccessUrl("/portPlus", true).permitAll()).csrf()
-				.disable();
+		http.authorizeRequests().antMatchers("/portPlus", "/portPlus/cadastrar").permitAll().antMatchers("/perfil")
+				.hasRole("ALUNO").antMatchers("/portPlus/criarCurso/**", "/perfil").hasRole("INSTRUTOR").anyRequest()
+				.authenticated().and()
+				.formLogin(form -> form.loginPage("/portPlus/login").defaultSuccessUrl("/portPlus", true).permitAll())
+				.csrf().disable();
 	}
 
 	@Override
