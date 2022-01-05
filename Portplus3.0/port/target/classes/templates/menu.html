@@ -1,0 +1,118 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/Styles/Style.css" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Port+</title>
+</head>
+<body>
+	<div th:fragment="navside">
+
+		<div id="mySidenav" class="sidenav">
+			<p class="logo">
+				Port+ <span class="menu">&#9776;</span>
+			</p>
+			<p class="logo1">
+				<span class="menu1">&#9776;</span>
+			</p>
+			<!-- <a href="/" class="icon-a"> <i class="fa fa-dashboard icons"></i>
+				&nbsp;&nbsp;Painel
+			</a> -->
+			<a sec:authorize="isAuthenticated()" href="/" class="icon-a"><i
+				class="fa fa-list icons"></i> &nbsp;&nbsp;Menu</a> <a
+				sec:authorize="isAuthenticated()" href="/portPlus/perfil"
+				class="icon-a"><i class="fa fa-user icons"></i>
+				&nbsp;&nbsp;Perfil</a> <a sec:authorize="hasRole('INSTRUTOR')"
+				href="/portPlus/criarCurso" class="icon-a"><i
+				class="fa fa-edit icons"></i> &nbsp;&nbsp;Criar Curso</a>
+			<!-- <a
+				sec:authorize="hasRole('INSTRUTOR')" href="/portPlus/meusCursos"
+				class="icon-a"><i class="fa fa-list-alt icons"></i>
+				&nbsp;&nbsp;Submeter curso</a> -->
+		</div>
+	</div>
+
+	<div id="main">
+		<div th:fragment="navbar">
+			<div class="head">
+				<div class="col-div-6">
+					<p class="nav">Painel</p>
+				</div>
+				<div class="col-div-6">
+					<div sec:authorize="isAuthenticated()" class="profile">
+						<img src="/Imagens/usuario.png" class="pro-img circle" />
+						<p sec:authentication="principal.nome">
+							<i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
+						</p>
+
+						<div class="profile-div">
+							<p>
+								<a href="#" class="icon-a"><i class="fa fa-user"></i>
+									&nbsp;&nbsp;Perfil 
+							</p>
+							<p>
+								<i class="fa fa-power-off"></i> &nbsp;&nbsp;Sair
+							</p>
+						</div>
+					</div>
+					<div class="login">
+						<p sec:authorize="!isAuthenticated()">
+							<a href="/portPlus/login">LOGIN</a>
+						</p>
+						<p sec:authorize="!isAuthenticated()">
+							<a href="/portPlus/signup">SIGNUP</a>
+						</p>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+			<br />
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile p").click(function() {
+				$(".profile-div").toggle();
+
+			});
+
+			/* $(".noti-icon").click(function() {
+					$(".notification-div").toggle();
+				}); */
+
+		});
+	</script>
+</body>
+</html>

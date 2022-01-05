@@ -1,0 +1,37 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Styles/Style.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: navside}"></div>
+	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
+		<h6>Perfil:</h6>
+		<br>
+
+		<div class="profile-u">
+			<img src="/Imagens/usuario.png" class="pro-img-u circle" />
+
+			<div class="profile-us" sec:authorize="isAuthenticated()">
+				<div>
+					NOME:
+					<p sec:authentication="principal.nome"></p>
+
+				</div>
+				<div>
+					<br> EMAIL:
+					<p sec:authentication="principal.email"></p>
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

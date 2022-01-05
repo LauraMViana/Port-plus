@@ -1,0 +1,62 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/Styles/Stylee.css">
+<title>Port+</title>
+</head>
+<body class="login">
+	<div class="container-login">
+		<div class="card-login">
+			<div class="inner-box-login" id="card">
+				<div class="card-front-login">
+					<h2>Login</h2>
+					<form action="" method="post">
+						<input type="email" class="input-box-login" placeholder="Email"
+							name="username" required> <input type="password"
+							class="input-box-login" placeholder="Senha" name="password"
+							required><input type="hidden"
+							name="${_csrf.parameterName}" value="${_csrf.token}" />
+						<button type="submit" class="submit-btn-login" id="botao">Login</button>
+						<input type="checkbox"><span class="login">Manter-me
+							conectado</span>
+					</form>
+					<button type="button" class="btn-login" onclick="openCadastrar()">Sou
+						novo aqui</button>
+					<a href="">Esqueci a senha</a>
+				</div>
+				<div class="card-back-login">
+					<h2>Cadastrar</h2>
+					<form>
+						<input type="text" class="input-box-login" placeholder="Seu nome"
+							required> <input type="email" class="input-box-login"
+							placeholder="Email" required> <input type="password"
+							class="input-box-login" placeholder="Senha" required>
+						<button type="submit" class="submit-btn-login">Cadastrar</button>
+						<input type="checkbox"><span class="login">Manter-me
+							conectado</span>
+					</form>
+					<button type="button" class="btn-login" onclick="openLogin()">Já
+						tenho uma conta</button>
+					<a href="">Esqueci a senha</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		var card = document.getElementById("card");
+
+		function openCadastrar() {
+			document.getElementById('botao').style.display = 'none'
+			card.style.transform = "rotateY(-180deg)";
+		}
+		function openLogin() {
+			card.style.transform = "rotateY(0deg)";
+			document.getElementById('botao').style.display = 'inline'
+		}
+	</script>
+</body>
+</html>
