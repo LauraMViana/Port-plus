@@ -26,7 +26,8 @@
 				class="icon-a"><i class="fa fa-user icons"></i>
 				&nbsp;&nbsp;Perfil</a> <a sec:authorize="hasRole('INSTRUTOR')"
 				href="/portPlus/criarCurso" class="icon-a"><i
-				class="fa fa-edit icons"></i> &nbsp;&nbsp;Criar Curso</a><!-- <a
+				class="fa fa-edit icons"></i> &nbsp;&nbsp;Criar Curso</a>
+			<!-- <a
 				sec:authorize="hasRole('INSTRUTOR')" href="/portPlus/meusCursos"
 				class="icon-a"><i class="fa fa-list-alt icons"></i>
 				&nbsp;&nbsp;Submeter curso</a> -->
@@ -42,8 +43,8 @@
 				<div class="col-div-6">
 					<div sec:authorize="isAuthenticated()" class="profile">
 						<img src="/Imagens/usuario.png" class="pro-img circle" />
-						<p sec:authentication="name">
-							Instrutor <i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
+						<p sec:authentication="principal.nome">
+							<i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
 						</p>
 
 						<div class="profile-div">

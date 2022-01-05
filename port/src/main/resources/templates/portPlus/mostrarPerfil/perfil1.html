@@ -19,21 +19,17 @@
 		<div class="profile-u">
 			<img src="/Imagens/usuario.png" class="pro-img-u circle" />
 
-			<div class="profile-us">
+			<div class="profile-us" sec:authorize="isAuthenticated()">
 				<div>
 					NOME:
-					<p ></p>
+					<p sec:authentication="principal.nome"></p>
+
 				</div>
 				<div>
 					<br> EMAIL:
-					<p th:text="${#authentication.name}"></p>
+					<p sec:authentication="principal.email"></p>
 				</div>
 				<br>
-				<div>
-					TIPO DE USUARIO:
-					<p></p>
-				</div>
-
 			</div>
 		</div>
 	</div>
