@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;construcao.html&apos; to &apos;construcao.html&apos;&#x0D;&#x0A;- Original project: &apos;port&apos;&#x0D;&#x0A;- Destination element: &apos;construcao.html&apos;&#x0D;&#x0A;- Original element: &apos;construcao.html&apos;" description="Copy file" element1="src/main/resources/templates/construcao.html" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1637762309037" target="/port/src/main/resources/templates/construcao.html" units="0" version="1.0"/>
+</session>

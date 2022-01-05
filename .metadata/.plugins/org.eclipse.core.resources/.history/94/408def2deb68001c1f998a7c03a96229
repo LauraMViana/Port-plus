@@ -1,0 +1,5 @@
+package ifrn.tcc.port.Service;
+
+public class CustomUserDetailsService {
+
+}

@@ -1,0 +1,14 @@
+package ifrn.tcc.port.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+
+import ifrn.tcc.port.service.CustomUserDetailsService;
+
+@Configuration
+public class SecurityConfig {
+
+	@Autowired
+	private CustomUserDetailsService detailsService;
+
+}

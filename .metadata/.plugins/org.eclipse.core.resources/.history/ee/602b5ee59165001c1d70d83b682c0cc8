@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<!-- 
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/style.css" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: menu}"></div>
+	<div id="main"">
+		<h3 th:text="${curso.titulo}"></h3>
+		<div class="row">
+			<div>
+				<p th:text="${curso.descricao}"></p>
+			</div>
+			<div class="col s12 m4 l4" th:each="md:${modulo}">
+				<div class="card-action">
+					<div class="card small">
+						<div class="card-image">
+							<a
+								th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+								<img src="/imagens/azul.png">
+							</a>
+						</div>
+						<div class="card-content">
+							<a
+								th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+								<span class="card-title" th:text="${md.tituloMod}"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile p").click(function() {
+				$(".profile-div").toggle();
+
+			});
+			$(".noti-icon").click(function() {
+				$(".notification-div").toggle();
+			});
+
+		});
+	</script>
+</body>
+</html>

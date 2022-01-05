@@ -1,0 +1,22 @@
+package ifrn.tcc.port.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import ifrn.tcc.port.Models.Usuario;
+import ifrn.tcc.port.repositories.ModuloRepository;
+
+public class CustomUserDetailsService implements UserDetailsService {
+	@Autowired
+	private ModuloRepository ur;
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Usuario usuario = ur.findByEmail(username);
+
+		return null;
+	}
+
+}

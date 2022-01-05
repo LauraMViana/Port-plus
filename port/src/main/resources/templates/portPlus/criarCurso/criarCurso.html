@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Styles/Style.css">
+
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: navside}"></div>
+	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
+		<h4>Informações gerais:</h4>
+		<form action="/portPlus/criarCurso" method="post"
+			enctype="multipart/form-data" th:object="${curso}" class="form">
+			<div class="file input-field col s3">
+				<i class="large material-icons">add_a_photo</i> <input type="file"
+					name="file">
+				<p th:errors="*{nomeLogo}"></p>
+			</div>
+			<div class="input-field col s9">
+				<label for="titulo">Título</label> <input
+					placeholder="Digite o título do curso" id="titulo" type="text"
+					class="validate" th:field="*{titulo}">
+				<p th:errors="*{titulo}"></p>
+				<div>
+					<label for="cg">Carga-horária(h)</label> <input
+						placeholder="Carga-horária" id="cg" type="number" class="validate"
+						th:field="*{cargahoraria}">
+				</div>
+				<p th:errors="*{cargahoraria}"></p>
+			</div>
+			<div class="input-field">
+				<label for=" nome"> Público-alvo</label> <input
+					placeholder="Qual o público-alvo do curos" id="nome" type="text"
+					th:field="*{publicalvo}">
+				<p th:errors="*{publicalvo}"></p>
+			</div>
+
+			<div class="input-field">
+				<label for="textarea1">Descrição</label>
+				<textarea placeholder="Digite a descrição do curso" id="textarea1"
+					class="materialize-textarea" th:field="*{descricao}"></textarea>
+
+				<p th:errors="*{descricao}"></p>
+			</div>
+
+			<div class="input-field">
+				<label for="textarea1">Conteúdo</label>
+				<textarea placeholder="Digite os Conteúdos abordados no curso"
+					id="textarea1" class="materialize-textarea" th:field="*{conteudo}"></textarea>
+
+				<p th:errors="*{conteudo}"></p>
+			</div>
+
+			<div id="btn">
+				<button class="btn waves-effect waves-light"
+					type="reset" name="action">Limpar</button>
+				<button class="btn waves-effect waves-light"
+					type="submit" name="action">Salvar e seguir</button>
+			</div>
+		</form>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile p").click(function() {
+				$(".profile-div").toggle();
+			});
+		});
+	</script>
+</body>
+</html>
