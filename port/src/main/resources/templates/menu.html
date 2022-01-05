@@ -27,10 +27,10 @@
 				&nbsp;&nbsp;Perfil</a> <a sec:authorize="hasRole('INSTRUTOR')"
 				href="/portPlus/criarCurso" class="icon-a"><i
 				class="fa fa-edit icons"></i> &nbsp;&nbsp;Criar Curso</a>
-			<!-- <a
-				sec:authorize="hasRole('INSTRUTOR')" href="/portPlus/meusCursos"
+			<a
+				sec:authorize="isAuthenticated()" href="/portPlus/logout"
 				class="icon-a"><i class="fa fa-list-alt icons"></i>
-				&nbsp;&nbsp;Submeter curso</a> -->
+				&nbsp;&nbsp;Sair</a> 
 		</div>
 	</div>
 
@@ -47,7 +47,7 @@
 							<i class="fa fa-ellipsis-v dots" aria-hidden="true"></i>
 						</p>
 
-						<div class="profile-div">
+						<!-- <div class="profile-div">
 							<p>
 								<a href="/portPlus/perfil" class="icon-a"><i
 									class="fa fa-user"></i> &nbsp;&nbsp;Perfil 
@@ -57,7 +57,7 @@
 									class="fa fa-power-off"></i> &nbsp;&nbsp;Sair 
 							</p>
 
-						</div>
+						</div> -->
 					</div>
 					<div class="login">
 						<p sec:authorize="!isAuthenticated()">

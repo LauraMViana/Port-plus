@@ -15,23 +15,22 @@
 		<div th:insert="~{menu :: navbar}"></div>
 		<h6>Perfil:</h6>
 		<br>
+	<div class="profile-u">
+		<img src="/Imagens/usuario.png" class="pro-img-u circle" />
 
-		<div class="profile-u">
-			<img src="/Imagens/usuario.png" class="pro-img-u circle" />
+		<div class="profile-us" sec:authorize="isAuthenticated()">
+			<div>
+				NOME:
+				<p sec:authentication="principal.nome"></p>
 
-			<div class="profile-us" sec:authorize="isAuthenticated()">
-				<div>
-					NOME:
-					<p sec:authentication="principal.nome"></p>
-
-				</div>
-				<div>
-					<br> EMAIL:
-					<p sec:authentication="principal.email"></p>
-				</div>
-				<br>
 			</div>
+			<div>
+				<br> EMAIL:
+				<p sec:authentication="principal.email"></p>
+			</div>
+			<br>
 		</div>
+	</div>
 	</div>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
