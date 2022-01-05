@@ -1,0 +1,127 @@
+/* Laura */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body.login {
+	background-image: url('../Imagens/MOOC.png');
+	background-size: cover;
+}
+
+.container-login {
+	width: 100%;
+	height: 100vh;
+	font-family: Helvetica;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.card-login {
+	width: 350px;
+	height: 500px;
+	box-shadow: 0 0 40px rgb(45, 74, 148);
+	perspective: 1000px;
+}
+
+.inner-box-login {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}
+
+.card-front-login, .card-back-login {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	padding: 55px;
+	box-sizing: border-box;
+	backface-visibility: hidden;
+}
+
+.card-back-login {
+	transform: rotateY(180deg);
+}
+
+.card-login h2 {
+	font-weight: normal;
+	font-size: 24px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.input-box-login {
+	width: 100%;
+	background: transparent;
+	border: 1px solid #fff;
+	margin: 6px 0;
+	height: 32px;
+	border-radius: 20px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	outline: none;
+	text-align: center;
+	color: #fff;
+}
+
+::placeholder {
+	color: #fff;
+	font-size: 12px;
+}
+
+button {
+	width: 100%;
+	background: transparent;
+	border: 1px solid #fff;
+	margin: 35px 0 10px;
+	height: 32px;
+	font-size: 12px;
+	border-radius: 20px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	outline: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+.submit-btn-login {
+	position: relative;
+}
+
+.submit-btn-login::after {
+	content: '\27a4';
+	color: #333;
+	line-height: 32px;
+	font-size: 17px;
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	background: #fff;
+	position: absolute;
+	right: -1px;
+	top: -1px;
+}
+
+span .login {
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+.card-login .btn-login {
+	margin-top: 70px;
+}
+
+.card-login a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	font-size: 13px;
+	margin-top: 8px;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Styles/Style.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: navside}"></div>
+	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
+		<h6>Informações gerais:</h6>
+		<br>
+		<div class="dados-do-curso s12">
+			<div class="col s3">
+				<img width="180" height="100"
+					th:src="@{/portPlus/{imagem} (imagem=${curso.nomeLogo})}">
+			</div>
+			<div class="col s9">
+				<div class="col s5">
+					<label for="titulo">Título:</label><br> <input type="hidden"
+						id="titulo" th:text="${curso.titulo}"></input>
+				</div>
+				<div class="col s4">
+					<label for="cg">Carga-horária(h):</label> <br> <input
+						type="hidden" id="cg" th:text="${curso.cargahoraria}">
+					horas
+				</div>
+				<div class="col s3">
+					<label for="nome">Público-alvo:</label><br> <input
+						type="hidden" id="nome" th:text="${curso.publicalvo}">
+				</div>
+				<div class="col s12">
+					<label for="textarea">Descrição:</label><br> <input
+						type="hidden" id="textarea" th:text="${curso.descricao}"></input>
+				</div>
+				<div class="col s12 cont">
+					<label for="textarea1">Conteúdo:</label><br> <input
+						type="hidden" id="textarea1" th:text="${curso.conteudo}"></input>
+				</div>
+				<br>
+			</div>
+		</div>
+		<hr>
+		<form th:action="@{/portPlus/criarCurso/{idC}(idC=${curso.id})}"
+			method="post">
+			<h6 class="s9">Módulos:</h6>
+			<div id="btn" class="s3">
+				<a class="waves-effect waves-light btn modal-trigger" href="#modal1">+Módulo</a>
+			</div>
+			<div id="modal1" class="modal modal-fixed-footer">
+				<div class="modal-content">
+					<div class="input-field col s10">
+						<label for="tmod">Título do módulo</label> <input
+							placeholder="Digite o título do módulo" id="tMod" type="text"
+							class="validate" th:field="${modulo.tituloMod}">
+					</div>
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
+					<button type="submit"
+						name="action">Salvar</button>
+				</div>
+			</div>
+		</form>
+		<p th:if="${mensagem}" th:text="${mensagem}"></p>
+
+		<div class="row dup ap">
+			<ul class="collapsible popoute" th:each="md:${modulos}">
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">toc</i>
+						<div class="col s10" th:text="*{md.tituloMod}">titulo</div>
+						<div>
+							<a class="btn waves-effect waves-light mod"
+								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarVideo (idC=${curso.id}, idMod=${md.id})}">
+								<i class="material-icons">play_circle_filled</i>
+							</a>
+						</div>
+						<div>
+							<a class="btn waves-effect waves-light mod"
+								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarConteudo (idC=${curso.id}, idMod=${md.id})}">
+								<i class="material-icons">picture_as_pdf</i>
+							</a>
+						</div>
+						<a class="btn waves-effect waves-light mod"
+							th:href="@{/portPlus/criarCurso/{idC}/{idMod}/Apagar (idC=${curso.id}, idMod=${md.id})}"><i
+							class="material-icons">delete</i> </a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="btn">
+			<a th:href="@{/portPlus/criarCurso/{idC}/concluir (idC=${curso.id})}"
+				class="btn waves-effect waves-light">concluído</a>
+		</div>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile").click(function() {
+				$(".profile-div").toggle();
+			});
+		});
+
+		$(document).ready(function() {
+			$(".optCont a").click(function() {
+				$(".opt").toggle();
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.dropdown-trigger');
+			var instances = M.Dropdown.init(elems);
+		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.modal');
+			var instances = M.Modal.init(elems);
+		});
+	</script>
+</body>
+</html>
