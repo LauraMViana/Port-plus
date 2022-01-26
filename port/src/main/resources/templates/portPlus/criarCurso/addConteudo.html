@@ -8,39 +8,98 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>PortPlus</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css"
+	rel="stylesheet">
+
 </head>
-<body>
+<body
+	style="margin: 0px; padding: 0px; background-color: #efeff5; font-family: system-ui;">
+	<!-- <style>
+
+</style> -->
 	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
 		<div th:insert="~{menu :: navbar}"></div>
-		<h6>
+		<!-- <h6>
 			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
 				th:text="${modulo.tituloMod}"></span>
 		</h6>
 		<br>
 		<form
 			th:action="@{/portPlus/criarCurso/{idC}/{idMod} (idC=${curso.id},idMod=${modulo.id})}"
-			method="post">
-			<div class="input-field col s10">
+			method="post" class="formMat">
+			<div class="col s10">
+				<input type="hidden" th:field="${material.id}" readonly="readonly">
 				<label for="tituloM">Título do material</label><input
 					placeholder="Digite o título do material" id="tituloM" type="text"
-					pattern="[a-zA-Z0-9_?!&%$()- ]+" class="validate"
-					th:field="${material.tituloMat}">
+					pattern="[a-zA-Z0-9_?!&%$()- ]+" th:field="${material.tituloMat}">
+				<p th:errors="${material.tituloMat}">
 				<div>
+
 					<label for="mc">Conteúdo</label>
 					<textarea placeholder="Insira o conteúdo" id="mc"
-						class="materialize-textarea texto" th:field="${material.conteudo}"></textarea>
+						class="textarea texto" th:field="${material.conteudo}" required></textarea>
 				</div>
 
 			</div>
 			<div class="col s10" id="btn">
-				<button class="btn waves-effect waves-light align-center"
-					type="reset" name="action">Limpar</button>
-				<button class="btn waves-effect waves-light align-center"
-					type="submit" name="action">Salvar</button>
+				<button class="btn" type="reset" name="action">Limpar</button>
+				<button class="btn" type="submit" name="action">Salvar</button>
+			</div>
+		</form> -->
+		<h6 style="font-weight: 100;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	color: #6c7293;
+	font-size: 30px;
+	margin: 0px;">
+			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
+				th:text="${modulo.tituloMod}"></span>
+		</h6>
+		<br>
+		<form
+			th:action="@{/portPlus/criarCurso/{idC}/{idMod} (idC=${curso.id},idMod=${modulo.id})}"
+			method="post" style="padding-left:80px;padding-right:50px;">
+			<input type="hidden" th:field="${material.id}" readonly="readonly">
+			<label for="tituloM">Título do material:</label><input
+				placeholder="Digite o título do material" id="tituloM" type="text"
+				pattern="[a-zA-Z0-9_?!&%$()- ]+" th:field="${material.tituloMat}">
+			<p th:errors="${material.tituloMat}">
+			<div>
+				<label for="mc">Conteúdo:</label>
+				<textarea id="summernote" type="text" class="form-control"
+					placeholder="Insira o conteúdo" th:field="${material.conteudo}"
+					required></textarea>
+			</div>
+			<div class="col s10" id="btn">
+				<button class="btn" type="reset" name="action"
+					style="color: #fff; background-color: #5643ff; text-align: center; border: none; border-radius: 2px; height: 36px; padding: 0 16px; font-size: 14px;">Limpar</button>
+				<button class="btn" type="submit" name="action"
+					style="color: #fff; background-color: #5643ff; text-align: center; border: none; border-radius: 2px; height: 36px; padding: 0 16px; font-size: 14px;">Salvar</button>
 			</div>
 		</form>
+
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+
 	</div>
+	<script>
+		$('#summernote').summernote({
+			placeholder : 'Descrição *',
+			tabsize : 2,
+			height : 300
+		});
+	</script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script>

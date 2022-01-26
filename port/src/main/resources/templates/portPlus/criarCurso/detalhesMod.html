@@ -1,0 +1,121 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet" href="/Styles/Style.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>PortPlus</title>
+</head>
+<body>
+	<div th:insert="~{menu :: navside}"></div>
+	<div id="main">
+		<div th:insert="~{menu :: navbar}"></div>
+
+		<form th:action="@{/portPlus/criarCurso/{idC} (idC=${curso.id})}"
+			method="post">
+			<div>
+				<h6>
+					Curso: <span th:text="${curso.titulo}"></span>
+				</h6>
+				<div class="col s10">
+					<h6>
+						Modulo:<span> <input type="hidden" th:field="${modulo.id}"
+							readonly="readonly"><input
+							placeholder="Digite o título do módulo" id="tModd" type="text"
+							th:field="${modulo.tituloMod}" title="EDITAR O TÍTULO DO MÓDULO"></span>
+					</h6>
+				</div>
+			</div>
+
+			<div class="col s12">
+				<ul class="listagemMod" th:each="mat:${materiais}">
+					<li>
+						<div class="listagemMod-h">
+							<i class="material-icons">toc</i>
+							<div class="col s10 tmd">
+								<span th:text="*{mat.tituloMat}"></span>
+							</div>
+							<div class="opcoesMod">
+								<a class="btn"
+									th:href="@{/portPlus/criarCurso/{idC}/{idMod}/detalhes/{idMat}/editar (idC=${curso.id}, idMod=${modulo.id}, idMat=${mat.id})}"
+									title="EDITAR MATERIAL"> <i class="material-icons md">border_color</i>
+								</a>
+							</div>
+							<div class="opcoesMod">
+								<a class="btn"
+									th:href="@{/portPlus/criarCurso/{idC}/{idMod}/detalhes/{idMat}/apagar (idC=${curso.id}, idMod=${modulo.id}, idMat=${mat.id})}"
+									title="DELETAR MATERIAL"><i class="material-icons md">delete</i>
+								</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<div class="col s12" id="btn">
+				<button class="btn waves-effect waves-light align-center"
+					type="submit" name="action" title="SALVAR ALTERAÇÕES">Salvar</button>
+			</div>
+		</form>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(".menu").click(function() {
+			$("#mySidenav").css('width', '70px');
+			$("#main").css('margin-left', '70px');
+			$(".logo").css('display', 'none');
+			$(".logo1").css('display', 'block');
+			$(".logo span").css('visibility', 'visible');
+			$(".logo span").css('margin-left', '-10px');
+			$(".icon-a").css('visibility', 'hidden');
+			$(".icon-a").css('height', '25px');
+			$(".icons").css('visibility', 'visible');
+			$(".icons").css('margin-left', '-8px');
+			$(".menu1").css('display', 'block');
+			$(".menu").css('display', 'none');
+		});
+
+		$(".menu1").click(function() {
+			$("#mySidenav").css('width', '300px');
+			$("#main").css('margin-left', '300px');
+			$(".logo").css('visibility', 'visible');
+			$(".logo").css('display', 'block');
+			$(".icon-a").css('visibility', 'visible');
+			$(".icons").css('visibility', 'visible');
+			$(".menu").css('display', 'block');
+			$(".menu1").css('display', 'none');
+		});
+	</script>
+	<script>
+		$(document).ready(function() {
+			$(".profile").click(function() {
+				$(".profile-div").toggle();
+			});
+		});
+
+		$(document).ready(function() {
+			$(".optCont a").click(function() {
+				$(".opt").toggle();
+			});
+		});
+	</script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.dropdown-trigger');
+			var instances = M.Dropdown.init(elems);
+		});
+
+		document.addEventListener('DOMContentLoaded', function() {
+			var elems = document.querySelectorAll('.modal');
+			var instances = M.Modal.init(elems);
+		});
+	</script>
+</body>
+</html>

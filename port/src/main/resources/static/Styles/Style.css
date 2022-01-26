@@ -95,9 +95,10 @@ body {
 	background-color: white;
 	padding: 10px;
 	border-radius: 25px;
-	padding-left: 35px;
-	width: 80px;
+	padding-left: 10px;
+	width: 90px;
 	float: right;
+	text-align: center;
 	cursor: pointer;
 }
 
@@ -382,19 +383,331 @@ tr:nth-child(even) {
 	transform: rotate(126deg);
 }
 
-@keyframes fill { 0% {
+@
+keyframes fill { 0% {
 	transform: rotate(0deg);
-} 100%
+}
+
+100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%
 {
 transform
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 rotate
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 (
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 126deg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ;
 }
 }
@@ -412,6 +725,30 @@ rotate
 	font-weight: 700;
 	font-size: 2em;
 	color: #6c7293;
+}
+
+/* Index "acessar" */
+.box-mod {
+	width: 88%;
+	height: 30px;
+	background-color: #dfdfdf;
+	margin-left: 10px;
+	padding: 10px;
+	position: relative;
+	margin-left: 10px;
+	padding: 10px;
+	border-top: 1px solid #d7dfe3;
+	margin-left: 10px;
+	margin-bottom: 15px;
+}
+
+.box-mod p {
+	color: #6c7293;
+	font-weight: 500;
+	margin: 0px;
+	padding: 10px;
+	width: 105px;
+	margin-left: 90px;
 }
 
 /* Thais */
@@ -438,243 +775,34 @@ a {
 	text-align: right;
 }
 
-/*Apresente material  */
-.mod-title {
-	font-size: 30px;
-	color: #d8d8d8;
-}
-
-/* Index  */
-.box-mod {
-	width: 88%;
-	height: 30px;
-	background-color: #dfdfdf;
-	margin-left: 10px;
-	padding: 10px;
-	position: relative;
-	margin-left: 10px;
-	padding: 10px;
-	border-top: 1px solid #d7dfe3;
-	margin-left: 10px;
-	margin-bottom: 15px;
-}
-
-.box-mod p {
-	color: #6c7293;
-	font-weight: 500;
-	margin: 0px;
-	padding: 10px;
-	width: 105px;
-	margin-left: 90px;
-}
-/* blocos de curso ou modulos  */
-.col-div-4-2 {
-	width: 25%;
-	float: left;
-}
-
-.card.small .card-image+.card-content, .card.medium .card-image+.card-content,
-	.card.large .card-image+.card-content {
-	max-height: 40%;
-}
-
-.card.small .card-content, .card.medium .card-content, .card.large .card-content
-	{
-	max-height: 100%;
-	overflow: hidden;
-}
-
-.card .card-content {
-	padding: 24px;
-	border-radius: 0 0 2px 2px;
-}
-
-.card .card-image img {
-	display: block;
-	border-radius: 2px 2px 0 0;
-	position: relative;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-}
-
-img {
-	border-style: none;
-}
-
-.card.small .card-image, .card.medium .card-image, .card.large .card-image
-	{
-	max-height: 60%;
-	overflow: hidden;
-}
-
-.card .card-image {
-	position: relative;
-}
-
-.card.small {
-	height: 300px;
-}
-
-.card.small, .card.medium, .card.large {
-	position: relative;
-}
-
-.card {
-	margin-left: 10px;
-	box-shadow: 2px 5px 10px #ddd;
-	position: relative;
-	height: 250px;
-	background-color: #fff;
-	-webkit-transition: -webkit-box-shadow .25s;
-	transition: -webkit-box-shadow .25s;
-	transition: box-shadow .25s;
-	transition: box-shadow .25s, -webkit-box-shadow .25s;
-	border-radius: 2px;
-}
-
-.card {
-	position: relative;
-	margin: 0.5rem 0 1rem 0;
-	background-color: #fff;
-	-webkit-transition: -webkit-box-shadow .25s;
-	transition: -webkit-box-shadow .25s;
-	transition: box-shadow .25s;
-	transition: box-shadow .25s, -webkit-box-shadow .25s;
-	border-radius: 2px;
-}
-
-.image {
-	display: block;
-	position: relative;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	max-height: 70%;
-	overflow: hidden;
-	max-height: 70%;
-	right: 0;
-	top: 0;
-	bottom: 0;
-}
-
-.card {
-	margin-left: 10px;
-	box-shadow: 2px 5px 10px #ddd;
-	position: relative;
-	height: 250px;
-	background-color: #fff;
-	-webkit-transition: -webkit-box-shadow .25s;
-	transition: -webkit-box-shadow .25s;
-	transition: box-shadow .25s;
-	transition: box-shadow .25s, -webkit-box-shadow .25s;
-	border-radius: 2px;
-}
-
-.card-title-mod {
-	display: block;
-	line-height: 32px;
-	margin-bottom: 8px;
-	font-size: 24px;
-	font-weight: 300;
-}
-/* descriçao do curso  */
-.mod-d {
-	font-size: 18px !important;
-	margin: 10px 0px;
-	color: #6c7293;
-	text-align: justify;
-}
-
-/* Pag apresentação Material */
-aside {
-	width: 260px;
-	float: right;
-	margin-right: 20px;
-	border: 1px solid black;
-}
-
-.conteudo {
-	padding-left: 15px;
-	width: 700px;
-	float: left;
-	height: 415px;
-	text-align: justify;
-}
-
-.card.lista {
-	background-color: #5643ff;
-	width: 259.5px;
-	height: 50px;
-	text-align: center;
-	padding: 5px 0px 5px 0px;
-	margin: 0px;
-}
-
-.lista li {
-	padding: 15px 8px 15px 32px;
+.btn {
 	text-decoration: none;
-	font-size: 20px;
-	color: #d8d8d8;
-	display: block;
-	text-align: justify;
-}
-
-.lista li:hover {
-	color: #f1f1f1;
+	color: #fff;
 	background-color: #5643ff;
+	text-align: center;
+	letter-spacing: .5px;
+	-webkit-transition: background-color .2s ease-out;
+	transition: background-color .2s ease-out;
+	cursor: pointer;
+	border: none;
+	border-radius: 2px;
+	display: inline-block;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 16px;
+	text-transform: uppercase;
+	font-size: 14px;
+	outline: 0;
+	font-size: 14px;
+	text-align: center
 }
 
-.lista a:hover {
-	color: #f1f1f1;
-	background-color: #5643ff;
-}
-
-ul {
-	padding: 0px;
-	margin: 0px;
-	list-style-type: none;
-}
-
-textarea.materialize-textarea.texto {
-	height: 12rem;
-}
-input:not([type]),input[type="text"]:not(.browser-default),
-	 input[type="url"]:not(.browser-default), input[type="number"]:not(.browser-default),
-	textarea.materialize-textarea {
-	background-color: transparent;
-	border-top-width: initial;
-	border-right-width: initial;
-	border-left-width: initial;
-	border-top-color: initial;
-	border-right-color: initial;
-	border-left-color: initial;
-	height: 3rem;
-	width: 100%;
-	font-size: 16px;
-	box-shadow: none;
-	box-sizing: content-box;
-	border-style: none none solid;
-	border-image: initial;
-	border-bottom: 1px solid rgb(158, 158, 158);
-	border-radius: 0px;
-	outline: none;
-	margin: 0px 0px 8px;
-	padding: 0px;
-	transition: box-shadow 0.3s ease 0s, border 0.3s ease 0s,
-		-webkit-box-shadow 0.3s ease 0s;
-}
-
-form.form{
-	padding-left: 50px;
-}
- */
-.dados-do-curso, .listarCriarMod {
-	padding-left: 50px;
+.col {
+	float: left;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 0.75rem;
+	min-height: 1px;
 }
 
 .s2 {
@@ -717,25 +845,6 @@ form.form{
 	right: auto;
 }
 
-.col.s12 {
-	width: 100%;
-	margin-left: auto;
-	left: auto;
-	right: auto;
-}
-
-.col.s12.cont {
-	padding-bottom: 20px;
-}
-
-.col {
-	float: left;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	padding: 0 0.75rem;
-	min-height: 1px;
-}
-
 .s10 {
 	width: 80%;
 	margin-left: auto;
@@ -743,66 +852,193 @@ form.form{
 	right: auto;
 }
 
-.btn {
-	text-decoration: none;
-	color: #fff;
-	background-color: #26a69a;
-	text-align: center;
-	letter-spacing: .5px;
-	-webkit-transition: background-color .2s ease-out;
-	transition: background-color .2s ease-out;
-	cursor: pointer;
-	border: none;
-	border-radius: 2px;
-	display: inline-block;
-	height: 36px;
-	line-height: 36px;
-	padding: 0 16px;
-	text-transform: uppercase;
-	font-size: 14px;
-	outline: 0;
-	font-size: 14px;
+.col.s12 {
+	width: 100%;
+	margin-left: auto;
+	left: auto;
+	right: auto;
 }
 
-.waves-effect {
-	position: relative;
-	cursor: pointer;
-	display: inline-block;
+/* Apresentação do curso */
+/* descriçao*/
+.mod-d {
+	font-size: 18px !important;
+	margin: 10px 0px;
+	color: #6c7293;
+	text-align: justify;
+}
+/* blocos de curso ou modulos  */
+.col-div-4-2 {
+	width: 25%;
+	float: left;
+}
+
+.card.small {
 	overflow: hidden;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	-webkit-tap-highlight-color: transparent;
-	vertical-align: middle;
-	z-index: 1;
-	-webkit-transition: .3s ease-out;
-	transition: .3s ease-out;
+	height: 300px;
 }
 
-.modal.modal-fixed-footer {
-	padding: 0;
-	height: 70%;
+.card .card-content {
+	padding: 24px;
+	border-radius: 0 0 2px 2px;
 }
 
-.modal {
-	display: none;
-	position: fixed;
+.card .card-image img {
+	display: block;
+	border-radius: 2px 2px 0 0;
+	position: relative;
 	left: 0;
 	right: 0;
-	background-color: #fafafa;
-	padding: 0;
-	max-height: 70%;
-	width: 55%;
-	margin: auto;
-	overflow-y: auto;
-	border-radius: 2px;
-	will-change: top, opacity;
+	top: 0;
+	bottom: 0;
+	width: 100%;
 }
 
+.card.small .card-image {
+	max-height: 60%;
+	overflow: hidden;
+}
+
+.card .card-image .card.smal {
+	position: relative;
+}
+
+.card {
+	box-shadow: 2px 5px 10px #ddd;
+	position: relative;
+	height: 250px;
+	background-color: #fff;
+	-webkit-transition: -webkit-box-shadow .25s;
+	transition: -webkit-box-shadow .25s;
+	transition: box-shadow .25s;
+	transition: box-shadow .25s, -webkit-box-shadow .25s;
+	border-radius: 2px;
+	margin: 0.5rem 15px 1rem 0;
+}
+
+.card-title-mod {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 20x;
+	color: #6c7293;
+	text-align: center;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+}
+
+/*Apresentação do material  */
+/* video e texto  */
+.conteudo {
+	padding-left: 15px;
+	width: 700px;
+	float: left;
+	height: 415px;
+	text-align: justify;
+	font-weight: bold;
+	color: #636887;
+}
+/* Aside */
+.mod-title {
+	font-size: 20px;
+	color: #d8d8d8;
+}
+
+aside {
+	width: 260px;
+	float: right;
+	margin: 20px 20px 0px 0px;
+	border: 1px solid black;
+}
+
+.card.lista {
+	background-color: #5643ff;
+	width: 259.5px;
+	height: 65px;
+	text-align: center;
+	padding: 5px 0px 5px 0px;
+	margin: 0px;
+}
+
+.lista a {
+	padding: 15px 8px 15px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	display: block;
+	text-align: justify;
+	color: #6c7293;
+}
+
+.lista a:hover {
+	color: #f1f1f1;
+	background-color: #5643ff;
+}
+
+/* Criar Curso  */
+/* logo */
+.col.s3.ft {
+	margin-top: 30px;
+}
+
+.material-icons.ft {
+	margin: 0px 50px 0px 50px;
+	font-size: 50px;
+}
+
+input.ft {
+	width: 240px;
+}
+/*formatação das letras  */
+label {
+	font-weight: normal;
+	font-size: 17px;
+	color: #484d62;
+}
+/* form  */
+form.form {
+	padding-left: 50px;
+}
+
+input:not([type]), input[type="text"]:not(.browser-default), input[type="url"]:not(.browser-default),
+	input[type="number"]:not(.browser-default), textarea.textarea {
+	background-color: transparent;
+	border-top-width: initial;
+	border-right-width: initial;
+	border-left-width: initial;
+	border-top-color: initial;
+	border-right-color: initial;
+	border-left-color: initial;
+	height: 3rem;
+	width: 100%;
+	font-size: 16px;
+	box-shadow: none;
+	box-sizing: content-box;
+	border-style: none none solid;
+	border-image: initial;
+	border-bottom: 1px solid rgb(158, 158, 158);
+	border-radius: 0px;
+	outline: none;
+	margin: 0px 0px 8px;
+	padding: 0px;
+	transition: box-shadow 0.3s ease 0s, border 0.3s ease 0s,
+		-webkit-box-shadow 0.3s ease 0s;
+}
+
+/* Criar Módulo  */
+.dados-do-curso, .listarCriarMod {
+	padding-left: 50px;
+}
+
+.col.s12.cont {
+	padding-bottom: 20px;
+}
+
+/*modal  */
 .modal.modal-fixed-footer {
-	padding: 0;
-	height: 70%;
+	height: 40%;
+	width: 40%;
+}
+
+.modal .modal-content {
+	padding: 65px 24px 24px 75px;
 }
 
 .modal {
@@ -827,14 +1063,19 @@ form.form{
 		rgb(0 0 0/ 12%), 0 11px 15px -7px rgb(0 0 0/ 20%);
 }
 
-.collapsible {
+/*lista de modulo  */
+.listagemMod {
 	border-top: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 	margin: 0.5rem 0 1rem 0;
 }
 
-.collapsible-header {
+ul.listagemMod {
+	list-style-type: none;
+}
+
+.listagemMod-h {
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -856,7 +1097,41 @@ form.form{
 	border-bottom: 1px solid #ddd;
 }
 
-.optCont {
+.opcoesMod {
+	padding-left: 5px;
+}
+
+.material-icons.md {
+	padding-top: 5px;
+}
+
+.dados-do-curso span {
+	font-size: 18px;
+	color: #6c7293;
+	text-align: justify;
+}
+
+.tmd span {
+	font-size: 18px;
+	font-family: Century Gothic, Arial, Helvetica, sans-serif;
+	color: #484d62;
+}
+/* detalhes do modulo */
+input#tModd {
+	width: 400px;
+}
+
+/* Adicionar Material */
+textarea.textarea.texto {
+	height: 12rem;
+}
+
+form.formMat {
+	margin-left: 150px;
+	margin-top: 50px;
+}
+
+/* .optCont {
 	display: inline-block;
 	float: right;
 	width: 160px;
@@ -889,21 +1164,25 @@ form.form{
 	background-color: #5643ff;
 	border-radius: 0px;
 	color: white;
+} */
+
+/*Meus Cursos-Instrutor  */
+.btn-meusCursos {
+ 	float: right;
+ 	padding-right:10px; 
+}
+.btn-meusCursos a {
+	text-decoration: none;
+	color: #5643ff;
+}
+.card-content.mc{
+	padding: 10px;
 }
 
-.modal.modal-fixed-footer {
-	height: 40%;
-	width: 40%;
-}
 
-.modal .modal-content {
-	padding: 65px 24px 24px 75px;
-}
-
+/* Perfil  */
 .profile-u {
 	display: inline-block;
-	/*	float: right;
- */
 	width: 98%;
 	height: 500px;
 }

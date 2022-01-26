@@ -27,9 +27,12 @@
 				&nbsp;&nbsp;Perfil</a> <a sec:authorize="hasRole('INSTRUTOR')"
 				href="/portPlus/criarCurso" class="icon-a"><i
 				class="fa fa-edit icons"></i> &nbsp;&nbsp;Criar Curso</a>
+				<a sec:authorize="hasRole('INSTRUTOR')"
+				href="/portPlus/meusCursos" class="icon-a"><i
+				class="fa fa-edit icons"></i> &nbsp;&nbsp;Meus Cursos</a>
 			<a
 				sec:authorize="isAuthenticated()" href="/portPlus/logout"
-				class="icon-a"><i class="fa fa-list-alt icons"></i>
+				class="icon-a"><i class="fa fa-sign-out icons"></i>
 				&nbsp;&nbsp;Sair</a> 
 		</div>
 	</div>
@@ -64,7 +67,7 @@
 							<a href="/portPlus/login">LOGIN</a>
 						</p>
 						<p sec:authorize="!isAuthenticated()">
-							<a href="/portPlus/cadastrar">SIGNUP</a>
+							<a href="/portPlus/login">CADASTRE-SE</a>
 						</p>
 					</div>
 				</div>

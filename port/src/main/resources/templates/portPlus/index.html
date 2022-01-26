@@ -28,17 +28,13 @@
 				<p>
 					<strong>Público-alvo: <span th:text="${c.publicalvo}"></span></strong>
 				</p>
-				</a>
+				
 			</div>
-			<div class="box-mod">
-				<p sec:authorize="isAuthenticated()">
+			<div class="box-mod ">
+				<p>
 					<a
 						th:href="@{/portPlus/meusCursos/{idC}/{titulo} (idC=${c.id}, titulo=${c.titulo})}">ACESSAR</a>
 				</p>
-				<p sec:authorize="!isAuthenticated()">
-					<a th:href="@{/portPlus/login}">INSCREVER-SE</a>
-				</p>
-
 			</div>
 		</div>
 	</div>

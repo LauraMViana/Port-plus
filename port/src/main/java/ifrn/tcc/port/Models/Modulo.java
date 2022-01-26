@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Modulo {
@@ -15,6 +16,7 @@ public class Modulo {
 	private long id;
 
 	@NotBlank
+	@Size(max = 66)
 	private String tituloMod;
 
 	@ManyToOne

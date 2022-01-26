@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Curso {
@@ -16,6 +17,7 @@ public class Curso {
 	private long id;
 
 	@NotBlank
+	@Size(max = 95)
 	private String titulo;
 
 	@NotNull

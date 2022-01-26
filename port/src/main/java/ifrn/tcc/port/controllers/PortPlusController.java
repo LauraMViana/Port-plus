@@ -12,9 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -40,6 +43,10 @@ import ifrn.tcc.port.repositories.UsuarioRepository;
 @Controller
 @RequestMapping("/portPlus")
 public class PortPlusController {
+	// relacionar dinamicamnete o user ao seu tipo
+	// no momento q finalizar o signup ja ficar logado no sistema
+	// foto no perfil
+	// pos login todas as pag(completa) fica como link
 
 //Caminho para salvar a logotipo do curso
 	private static String caminhologotipoCurso = "src/main/resources/static/Imagens/";
@@ -56,6 +63,14 @@ public class PortPlusController {
 	@Autowired
 	private UsuarioRepository ur;
 
+//Cadastro
+	@PostMapping("/cadastrar")
+	public String CadastroU(Usuario usuario) {
+		usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
+		ur.save(usuario);
+		return "redirect:/portPlus";
+	}
+
 // Login
 	@GetMapping("/login")
 	public String login(Usuario usuario) {
@@ -66,6 +81,7 @@ public class PortPlusController {
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
 		if (auth != null) {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
@@ -73,28 +89,15 @@ public class PortPlusController {
 		return "redirect:/portPlus";
 	}
 
-//cadastro
-	@GetMapping("/cadastrar")
-	public String cadastro(Usuario usuario) {
-		return "portPlus/login";
-	}
-
-//CadastroU
-	@PostMapping("/cadastrar")
-	public String CadastroU(Usuario usuario) {
-		ur.save(usuario);
-		return "redirect:/portPlus";
-	}
-
 //Perfil do usuario(dados pessoais)
 	@GetMapping("/perfil")
-	public String acessarPerfil1() {
+	public String acessarPerfil() {
 		return "portPlus/mostrarPerfil/perfil1";
 	}
 
 //	Acessar o form de dados gerais do curso
 	@GetMapping("/criarCurso")
-	public String acessarForm(Curso curso) {
+	public String FormCriarCuso(Curso curso) {
 		return "portPlus/criarCurso/CriarCurso";
 	}
 
@@ -102,7 +105,7 @@ public class PortPlusController {
 	@PostMapping("/criarCurso")
 	public String salvarCurso(@Valid Curso curso, BindingResult result, @RequestParam("file") MultipartFile arquivo) {
 		if (result.hasErrors()) {
-			return acessarForm(curso);
+			return FormCriarCuso(curso);
 		}
 		cr.save(curso);
 		Long idCurso = curso.getId();
@@ -122,11 +125,54 @@ public class PortPlusController {
 
 	}
 
+	@GetMapping("/meusCursos/{idC}/editar")
+	public ModelAndView EditarCurso(@PathVariable Long idC) {
+		ModelAndView md = new ModelAndView();
+		Optional<Curso> opt = cr.findById(idC);
+		if (opt.isEmpty()) {
+			md.setViewName("redirect:/portPlus/meusCursos");
+			return md;
+		}
+		Curso curso = opt.get();
+		md.setViewName("portPlus/criarCurso/criarCurso");
+		md.addObject("curso", curso);
+
+		return md;
+	}
+
+//Apagar Curso
+	@GetMapping("/meusCursos/{idC}/apagar")
+	public String ApagarCurso(@PathVariable Long idC, Long idMod) {
+		Optional<Curso> opt = cr.findById(idC);
+		if (!opt.isEmpty()) {
+			Curso curso = opt.get();
+			List<Modulo> modulos = mr.findByCurso(curso);
+			if (!modulos.isEmpty()) {
+				for (int i = 0; i < modulos.size(); i++) {
+					Modulo modulo = modulos.get(i);
+					List<Material> material = mtr.findByModulo(modulo);
+					mtr.deleteAll(material);
+				}
+			}
+			mr.deleteAll(modulos);
+			cr.delete(curso);
+			return "redirect:/portPlus/meusCursos";
+		}
+
+		return "redirect:/portPlus/meusCursos";
+	}
+
 // Dados do curso que foram preenchidos na pag anterior, criação  e listagem dos modulos
 	@GetMapping("/criarCurso/{idC}")
 	public ModelAndView addModulo(@PathVariable Long idC, Modulo modulo) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
+
+		if (opt.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso");
+			return md;
+		}
+
 		md.setViewName("portPlus/criarCurso/criarModulo");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
@@ -137,6 +183,37 @@ public class PortPlusController {
 		return md;
 	}
 
+	@GetMapping("/criarCurso/{idC}/{idMod}/detalhes")
+	public ModelAndView DetalhesMod(@PathVariable Long idC, @PathVariable Long idMod) {
+		ModelAndView md = new ModelAndView();
+		Optional<Curso> opt = cr.findById(idC);
+		Optional<Modulo> optm = mr.findById(idMod);
+
+		if (opt.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso");
+			return md;
+		}
+		if (optm.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso/{idC}");
+			return md;
+		}
+		Curso curso = opt.get();
+		Modulo modulo = optm.get();
+		if (curso.getId() != modulo.getCurso().getId()) {
+			md.setViewName("redirect:/portPlus/criarCurso/{idC}/{idMod}");
+			return md;
+		}
+		md.setViewName("portPlus/criarCurso/detalhesMod");
+		md.addObject("curso", curso);
+		md.addObject("modulo", modulo);
+
+		List<Material> materiais = mtr.findByModulo(modulo);
+		md.addObject("materiais", materiais);
+
+		return md;
+
+	}
+
 //	Salvar o modulo
 	@PostMapping("/criarCurso/{idC}")
 	public String salvarMod(@PathVariable Long idC, @Valid Modulo modulo, BindingResult result) {
@@ -144,6 +221,10 @@ public class PortPlusController {
 			return "redirect:/portPlus/criarCurso/{idC}";
 		}
 		Optional<Curso> opt = cr.findById(idC);
+
+		if (opt.isEmpty()) {
+			return "redirect:/portPlus/criarCurso";
+		}
 		Curso curso = opt.get();
 		modulo.setCurso(curso);
 		mr.save(modulo);
@@ -152,13 +233,20 @@ public class PortPlusController {
 
 //	Apagar o modulo
 	@GetMapping("/criarCurso/{idC}/{idMod}/Apagar")
-	public String ApagarMod(@PathVariable Long idC, @PathVariable Long idMod) {
+	public String ApagarModulo(@PathVariable Long idC, @PathVariable Long idMod) {
 		Optional<Modulo> optm = mr.findById(idMod);
+		Optional<Curso> opt = cr.findById(idC);
+		if (opt.isEmpty()) {
+			return "redirect:/portPlus/criarCurso";
+		}
+
 		if (!optm.isEmpty()) {
 			Modulo modulo = optm.get();
 			List<Material> materiais = mtr.findByModulo(modulo);
 			mtr.deleteAll(materiais);
 			mr.deleteById(idMod);
+		} else {
+			return "redirect:/portPlus/criarCurso/{idC}";
 		}
 		return "redirect:/portPlus/criarCurso/{idC}";
 	}
@@ -168,12 +256,19 @@ public class PortPlusController {
 	public ModelAndView addvideo(@PathVariable Long idC, @PathVariable Long idMod, Material material) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
-
+		if (opt.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso");
+			return md;
+		}
 		md.setViewName("/portPlus/criarCurso/addvideo");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
 
 		Optional<Modulo> optm = mr.findById(idMod);
+		if (optm.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso/{idC}");
+			return md;
+		}
 		Modulo modulo = optm.get();
 		md.addObject("modulo", modulo);
 
@@ -184,12 +279,19 @@ public class PortPlusController {
 	public ModelAndView addConteudo(@PathVariable Long idC, @PathVariable Long idMod, Material material) {
 		ModelAndView md = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);
-
+		if (opt.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso");
+			return md;
+		}
 		md.setViewName("/portPlus/criarCurso/addConteudo");
 		Curso curso = opt.get();
 		md.addObject("curso", curso);
 
 		Optional<Modulo> optm = mr.findById(idMod);
+		if (optm.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso/{idC}");
+			return md;
+		}
 		Modulo modulo = optm.get();
 		md.addObject("modulo", modulo);
 
@@ -200,13 +302,74 @@ public class PortPlusController {
 	@PostMapping("/criarCurso/{idC}/{idMod}")
 	public ModelAndView salvarMat(@PathVariable Long idC, @PathVariable Long idMod, @Valid Material material,
 			BindingResult result) {
+		if (result.hasErrors()) {
+			if (material.getConteudo() == null) {
+				return addvideo(idC, idMod, material);
+			}
+			if (material.getVideo() == null) {
+				return addConteudo(idC, idMod, material);
+			}
+		}
 		ModelAndView mv = new ModelAndView();
 		Optional<Modulo> optm = mr.findById(idMod);
 		Modulo modulo = optm.get();
 		material.setModulo(modulo);
+
 		mtr.save(material);
+
 		mv.setViewName("redirect:/portPlus/criarCurso/{idC}");
 		return mv;
+	}
+
+//Apagar material
+	@GetMapping("/criarCurso/{idC}/{idMod}/detalhes/{idMat}/apagar")
+	public String ApagarMaterial(@PathVariable Long idC, @PathVariable Long idMod, @PathVariable Long idMat) {
+		Optional<Material> optmt = mtr.findById(idMat);
+		Optional<Curso> opt = cr.findById(idC);
+		Optional<Modulo> optm = mr.findById(idMod);
+
+		if (opt.isEmpty() || optm.isEmpty() || optmt.isEmpty()) {
+			return "redirect:/portPlus/criarCurso/{idC}/{idMod}/detalhes";
+		}
+		if (!optmt.isEmpty()) {
+			mtr.deleteById(idMat);
+		}
+		return "redirect:/portPlus/criarCurso/{idC}/{idMod}/detalhes";
+	}
+
+	// Editar material
+	@GetMapping("/criarCurso/{idC}/{idMod}/detalhes/{idMat}/editar")
+	public ModelAndView EditarMaterial(@PathVariable Long idC, @PathVariable Long idMod, @PathVariable Long idMat) {
+		ModelAndView md = new ModelAndView();
+		Optional<Curso> opt = cr.findById(idC);
+		Optional<Modulo> optm = mr.findById(idMod);
+
+		if (opt.isEmpty() || optm.isEmpty()) {
+			md.setViewName("redirect:/portPlus/criarCurso/{idC}/{idMod}");
+			return md;
+		}
+		Curso curso = opt.get();
+		Modulo modulo = optm.get();
+		if (curso.getId() != modulo.getCurso().getId()) {
+			md.setViewName("redirect:/portPlus/criarCurso/{idC}/{idMod}");
+			return md;
+		}
+
+		Optional<Material> optmt = mtr.findById(idMat);
+		Material material = optmt.get();
+		if (!optmt.isEmpty()) {
+			if (material.getVideo() == null) {
+				md.setViewName("portPlus/criarCurso/addConteudo");
+			}
+			if (material.getConteudo() == null) {
+				md.setViewName("portPlus/criarCurso/addVideo");
+			}
+		}
+		md.addObject("curso", curso);
+		md.addObject("modulo", modulo);
+		md.addObject("material", material);
+
+		return md;
 	}
 
 //Concluir a criacao do curso
@@ -218,6 +381,20 @@ public class PortPlusController {
 		if (md.isEmpty()) {
 			attributes.addFlashAttribute("mensagem", "Adicione um módulo ao curso!");
 			return "redirect:/portPlus/criarCurso/{idC}";
+		}
+
+		if (!md.isEmpty()) {
+			for (int i = 0; i < md.size(); i++) {
+				Modulo modulo = md.get(i);
+				modulo.setCurso(curso);
+				mr.save(modulo);
+				List<Material> materiais = mtr.findByModulo(modulo);
+				if (materiais.isEmpty()) {
+					attributes.addFlashAttribute("mensagem",
+							"Adicione no minimo um material no módulo: " + modulo.getTituloMod());
+					return "redirect:/portPlus/criarCurso/{idC}";
+				}
+			}
 		}
 
 		return "redirect:/portPlus";
@@ -247,7 +424,6 @@ public class PortPlusController {
 	public byte[] imagem(@PathVariable("imagem") String imagem) throws IOException {
 		File imagemArquivo = new File(caminhologotipoCurso + imagem);
 		if (imagem != null || imagem.trim().length() > 0) {
-			System.out.println("NO IF");
 			return Files.readAllBytes(imagemArquivo.toPath());
 		}
 		return null;
@@ -276,7 +452,7 @@ public class PortPlusController {
 
 //Apresentação do material-> Videos e conteudos de cada modulo.
 	@GetMapping("/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod}")
-	public ModelAndView aptMat(@PathVariable Long idC, @PathVariable String titulo, @PathVariable Long idMod,
+	public ModelAndView ApresentMaterial(@PathVariable Long idC, @PathVariable String titulo, @PathVariable Long idMod,
 			Long idMat) {
 		ModelAndView mv = new ModelAndView();
 		Optional<Curso> opt = cr.findById(idC);

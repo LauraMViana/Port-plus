@@ -2,8 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
 <link rel="stylesheet" href="/Styles/style.css" type="text/css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,22 +14,21 @@
 		<h1 th:text="${curso.titulo}"></h1>
 		<p class="mod-d" th:text="${curso.descricao}"></p>
 		<div class="col-div-4-2" th:each="md:${modulo}">
-			<div class="card-action">
-				<div class="card small">
-					<div class="card-image">
-						<a
-							th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
-							<img src="/imagens/azul.png">
-						</a>
-					</div>
-					<div class="card-content">
-						<a
-							th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
-							<span class="card-title-mod " th:text="${md.tituloMod}"></span>
-						</a>
-					</div>
+			<div class="card small">
+				<div class="card-image">
+					<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+						<img src="/imagens/MOOC.png" width="165" height="165">
+					</a>
+				</div>
+				<div class="card-content">
+					<a
+						th:href="@{/portPlus/meusCursos/{idC}/{titulo}/{idMod}/{tituloMod} (idC=${curso.id}, titulo=${curso.titulo},idMod=${md.id}, tituloMod=${md.tituloMod})}">
+						<span class="card-title-mod " th:text="${md.tituloMod}"></span>
+					</a>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	<script

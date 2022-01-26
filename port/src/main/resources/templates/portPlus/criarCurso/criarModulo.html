@@ -22,25 +22,24 @@
 			</div>
 			<div class="col s9">
 				<div class="col s5">
-					<label for="titulo">Título:</label><br> <input type="hidden"
-						id="titulo" th:text="${curso.titulo}"></input>
+					<label for="titulo">Título:</label><br> <span
+						th:text="${curso.titulo}"></span>
 				</div>
 				<div class="col s4">
-					<label for="cg">Carga-horária(h):</label> <br> <input
-						type="hidden" id="cg" th:text="${curso.cargahoraria}">
-					horas
+					<label for="cg">Carga-horária(h):</label> <br> <span
+						th:text="${curso.cargahoraria}"></span><span> horas</span>
 				</div>
 				<div class="col s3">
-					<label for="nome">Público-alvo:</label><br> <input
-						type="hidden" id="nome" th:text="${curso.publicalvo}">
+					<label for="nome">Público-alvo:</label><br> <span
+						th:text="${curso.publicalvo}"> </span>
 				</div>
 				<div class="col s12">
-					<label for="textarea">Descrição:</label><br> <input
-						type="hidden" id="textarea" th:text="${curso.descricao}"></input>
+					<label for="textarea">Descrição:</label><br> <span
+						th:text="${curso.descricao}"></span>
 				</div>
 				<div class="col s12 cont">
-					<label for="textarea1">Conteúdo:</label><br> <input
-						type="hidden" id="textarea1" th:text="${curso.conteudo}"></input>
+					<label for="textarea1">Conteúdo:</label><br> <span
+						th:text="${curso.conteudo}"></span>
 				</div>
 				<br>
 			</div>
@@ -50,53 +49,65 @@
 			method="post">
 			<h6 class="s9">Módulos:</h6>
 			<div id="btn" class="s3">
-				<a class="waves-effect waves-light btn modal-trigger" href="#modal1">+Módulo</a>
+				<a class="btn modal-trigger" href="#modal1"
+					title="ADICIONAR MÓDULO(S)">+Módulo</a>
 			</div>
 			<div id="modal1" class="modal modal-fixed-footer">
 				<div class="modal-content">
-					<div class="input-field col s10">
-						<label for="tmod">Título do módulo</label> <input
+					<div class="col s10">
+						<Span for="tmod">Título do módulo</span> <input
 							placeholder="Digite o título do módulo" id="tMod" type="text"
-							class="validate" th:field="${modulo.tituloMod}">
+							th:field="${modulo.tituloMod}">
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a href="#" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
-					<button type="submit"
-						name="action">Salvar</button>
+					<a href="#" class="modal-close" title="CANCELAR">Cancelar</a>
+					<button type="submit" name="action" title="SALVAR">Salvar</button>
 				</div>
 			</div>
 		</form>
 		<p th:if="${mensagem}" th:text="${mensagem}"></p>
 
-		<div class="row dup ap">
-			<ul class="collapsible popoute" th:each="md:${modulos}">
+		<div>
+			<ul class="listagemMod" th:each="md:${modulos}">
 				<li>
-					<div class="collapsible-header">
+					<div class="listagemMod-h">
 						<i class="material-icons">toc</i>
-						<div class="col s10" th:text="*{md.tituloMod}">titulo</div>
-						<div>
-							<a class="btn waves-effect waves-light mod"
-								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarVideo (idC=${curso.id}, idMod=${md.id})}">
-								<i class="material-icons">play_circle_filled</i>
+						<div class="col s10 tmd">
+							<span th:text="*{md.tituloMod}"></span>
+						</div>
+						<div class="opcoesMod">
+							<a class="btn"
+								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarVideo (idC=${curso.id}, idMod=${md.id})}"
+								title="ADICIONAR VÍDEO"> <i class="material-icons md">play_circle_filled</i>
 							</a>
 						</div>
-						<div>
-							<a class="btn waves-effect waves-light mod"
-								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarConteudo (idC=${curso.id}, idMod=${md.id})}">
-								<i class="material-icons">picture_as_pdf</i>
+						<div class="opcoesMod">
+							<a class="btn"
+								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/adicionarConteudo (idC=${curso.id}, idMod=${md.id})}"
+								title="ADICIONAR TEXTO"> <i class="material-icons md">library_books</i>
 							</a>
 						</div>
-						<a class="btn waves-effect waves-light mod"
-							th:href="@{/portPlus/criarCurso/{idC}/{idMod}/Apagar (idC=${curso.id}, idMod=${md.id})}"><i
-							class="material-icons">delete</i> </a>
+						<div class="opcoesMod">
+							<a class="btn"
+								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/detalhes (idC=${curso.id}, idMod=${md.id})}"
+								title="DETALHES SOBRE O MÓDULO"> <i
+								class="material-icons md">info_outline </i>
+							</a>
+						</div>
+						<div class="opcoesMod">
+							<a class="btn"
+								th:href="@{/portPlus/criarCurso/{idC}/{idMod}/Apagar (idC=${curso.id}, idMod=${md.id})}"
+								title="DELETAR MÓDULO"><i class="material-icons md">delete</i>
+							</a>
+						</div>
 					</div>
 				</li>
 			</ul>
 		</div>
 		<div id="btn">
 			<a th:href="@{/portPlus/criarCurso/{idC}/concluir (idC=${curso.id})}"
-				class="btn waves-effect waves-light">concluído</a>
+				class="btn" title="CONCLUIR">concluído</a>
 		</div>
 	</div>
 	<script

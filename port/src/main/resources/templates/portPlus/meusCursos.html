@@ -22,11 +22,17 @@
 							<img th:src="@{/portPlus/{imagem} (imagem=${c.nomeLogo})}"
 								width="300" height="200 ">
 						</div>
-						<div class="card-content">
-							<span class="card-title-mod" th:text="${c.titulo}"> </span>
-							<!-- <div>
-								<a href="/portPlus/meusCursos/submeterCurso">SUBMETER </a>
-							</div> -->
+						<div class="card-content mc">
+							<span class="card-title-mod" th:text="${c.titulo}"></span>
+						</div>
+						<div class="btn-meusCursos">
+							<a th:href="@{/portPlus/meusCursos/{idC}/editar(idC=${c.id})}" title="EDITAR CURSO">
+								<i class="material-icons mc">border_color </i>
+							</a>
+						</div>
+						<div class="btn-meusCursos">
+							<a th:href="@{/portPlus/meusCursos/{idC}/apagar(idC=${c.id})}" title="APAGAR CURSO"><i
+								class="material-icons mc">delete</i> </a>
 						</div>
 					</div>
 				</div>
