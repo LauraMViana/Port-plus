@@ -12,7 +12,7 @@ public class TiposU implements GrantedAuthority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id;	
 	private String nome;
 
 	public Long getId() {

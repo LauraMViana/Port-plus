@@ -14,6 +14,19 @@
 	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
 		<div th:insert="~{menu :: navbar}"></div>
+		<div class="breadcrumb">
+			<ul style="padding-left: 0px;">
+				<li><a href="/">Menu</a></li>
+				<li>/</li>
+				<li><a
+					th:href="@{/portPlus/meusCursos/{idC}/{titulo} (idC=${curso.id}, titulo=${curso.titulo})}"
+					th:text="${curso.titulo}"></a></li>
+				<li>/</li>
+				<li><span th:text="${modulo.tituloMod}"></span></li>
+				<li>/</li>
+				<li><span th:text="${mat.tituloMat}"></span></li>
+			</ul>
+		</div>
 		<h6>
 			<i class="material-icons"> import_contacts</i> <span
 				th:text="${curso.titulo}"></span>

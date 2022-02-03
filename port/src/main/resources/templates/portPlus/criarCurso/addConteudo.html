@@ -19,51 +19,35 @@
 </head>
 <body
 	style="margin: 0px; padding: 0px; background-color: #efeff5; font-family: system-ui;">
-	<!-- <style>
-
-</style> -->
 	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
 		<div th:insert="~{menu :: navbar}"></div>
-		<!-- <h6>
+		<div class="breadcrumb" style="background-color: transparent;">
+			<ul style="padding-left: 0px;">
+				<li><a href="/">Menu</a></li>
+				<li>/</li>
+				<li><a
+					th:href="@{/portPlus/meusCursos/{idC}/editar(idC=${curso.id})}">
+						Curso:<span th:text="${curso.titulo}"></span>
+				</a></li>
+				<li>/</li>
+				<li><a
+					th:href="@{/portPlus/criarCurso/{idC} (idC=${curso.id})}">Módulo:<span
+						th:text="${modulo.tituloMod}"></span></a></li>
+				<li>/</li>
+				<li>Conteúdo</li>
+			</ul>
+		</div>
+		<h6
+			style="font-weight: 100; font-family: Century Gothic, Arial, Helvetica, sans-serif; color: #6c7293; font-size: 30px; 
+			margin: 0px;">
 			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
 				th:text="${modulo.tituloMod}"></span>
 		</h6>
 		<br>
 		<form
 			th:action="@{/portPlus/criarCurso/{idC}/{idMod} (idC=${curso.id},idMod=${modulo.id})}"
-			method="post" class="formMat">
-			<div class="col s10">
-				<input type="hidden" th:field="${material.id}" readonly="readonly">
-				<label for="tituloM">Título do material</label><input
-					placeholder="Digite o título do material" id="tituloM" type="text"
-					pattern="[a-zA-Z0-9_?!&%$()- ]+" th:field="${material.tituloMat}">
-				<p th:errors="${material.tituloMat}">
-				<div>
-
-					<label for="mc">Conteúdo</label>
-					<textarea placeholder="Insira o conteúdo" id="mc"
-						class="textarea texto" th:field="${material.conteudo}" required></textarea>
-				</div>
-
-			</div>
-			<div class="col s10" id="btn">
-				<button class="btn" type="reset" name="action">Limpar</button>
-				<button class="btn" type="submit" name="action">Salvar</button>
-			</div>
-		</form> -->
-		<h6 style="font-weight: 100;
-	font-family: Century Gothic, Arial, Helvetica, sans-serif;
-	color: #6c7293;
-	font-size: 30px;
-	margin: 0px;">
-			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
-				th:text="${modulo.tituloMod}"></span>
-		</h6>
-		<br>
-		<form
-			th:action="@{/portPlus/criarCurso/{idC}/{idMod} (idC=${curso.id},idMod=${modulo.id})}"
-			method="post" style="padding-left:80px;padding-right:50px;">
+			method="post" style="padding-left: 80px; padding-right: 50px;">
 			<input type="hidden" th:field="${material.id}" readonly="readonly">
 			<label for="tituloM">Título do material:</label><input
 				placeholder="Digite o título do material" id="tituloM" type="text"
@@ -72,14 +56,15 @@
 			<div>
 				<label for="mc">Conteúdo:</label>
 				<textarea id="summernote" type="text" class="form-control"
-					placeholder="Insira o conteúdo" th:field="${material.conteudo}"
-					required></textarea>
+					th:field="${material.conteudo}" required></textarea>
 			</div>
 			<div class="col s10" id="btn">
 				<button class="btn" type="reset" name="action"
-					style="color: #fff; background-color: #5643ff; text-align: center; border: none; border-radius: 2px; height: 36px; padding: 0 16px; font-size: 14px;">Limpar</button>
+					style="color: #fff; background-color: #5643ff; text-align: center; border: none; border-radius: 2px; 
+					height: 36px; padding: 0 16px; font-size: 14px;">Limpar</button>
 				<button class="btn" type="submit" name="action"
-					style="color: #fff; background-color: #5643ff; text-align: center; border: none; border-radius: 2px; height: 36px; padding: 0 16px; font-size: 14px;">Salvar</button>
+					style="color: #fff; background-color: #5643ff; text-align: center; border: none; border-radius: 2px; 
+					height: 36px; padding: 0 16px; font-size: 14px;">Salvar</button>
 			</div>
 		</form>
 
@@ -95,7 +80,7 @@
 	</div>
 	<script>
 		$('#summernote').summernote({
-			placeholder : 'Descrição *',
+			placeholder : 'Insira o conteúdo',
 			tabsize : 2,
 			height : 300
 		});

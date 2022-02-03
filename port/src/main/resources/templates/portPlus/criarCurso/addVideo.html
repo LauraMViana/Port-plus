@@ -13,6 +13,22 @@
 	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
 		<div th:insert="~{menu :: navbar}"></div>
+		<div class="breadcrumb">
+			<ul style="padding-left: 0px;">
+				<li><a href="/">Menu</a></li>
+				<li>/</li>
+				<li><a
+					th:href="@{/portPlus/meusCursos/{idC}/editar(idC=${curso.id})}">
+						Curso:<span th:text="${curso.titulo}"></span>
+				</a></li>
+				<li>/</li>
+				<li><a
+					th:href="@{/portPlus/criarCurso/{idC} (idC=${curso.id})}">Módulo:<span
+						th:text="${modulo.tituloMod}"></span></a></li>
+						<li>/</li>
+				<li>Vídeo</li>
+			</ul>
+		</div>
 		<h6>
 			Curso: <span th:text="${curso.titulo}"></span> <br>Módulo: <span
 				th:text="${modulo.tituloMod}"></span>

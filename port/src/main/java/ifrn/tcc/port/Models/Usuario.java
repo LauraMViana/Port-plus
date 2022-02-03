@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -20,9 +23,17 @@ public class Usuario implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@NotNull
+	private int tipo;
+
+	@NotBlank
 	private String nome;
+
+	@NotBlank
 	private String email;
+
+	@NotBlank
 	private String senha;
 
 	public Usuario() {
@@ -32,6 +43,14 @@ public class Usuario implements UserDetails {
 	@ManyToMany
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<TiposU> tipos;
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
 
 	public Long getId() {
 		return id;
@@ -63,6 +82,14 @@ public class Usuario implements UserDetails {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public List<TiposU> getTipos() {
+		return tipos;
+	}
+
+	public void setTipos(List<TiposU> tipos) {
+		this.tipos = tipos;
 	}
 
 	@Override

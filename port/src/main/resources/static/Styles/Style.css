@@ -752,6 +752,17 @@ rotate
 }
 
 /* Thais */
+
+.breadcrumb ul li {
+    display: inline-block;
+    padding-right: 4px;
+}
+.breadcrumb a {
+   text-decoration: underline;
+   color: #007bff;
+}
+
+
 h1 {
 	font-weight: 400;
 	font-family: Century Gothic, Arial, Helvetica, sans-serif;

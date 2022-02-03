@@ -14,6 +14,13 @@
 	<div th:insert="~{menu :: navside}"></div>
 	<div id="main">
 		<div th:insert="~{menu :: navbar}"></div>
+		<div class="breadcrumb">
+			<ul style="padding-left: 0px;">
+				<li><a href="/">Menu</a></li>
+				<li>/ </li>
+				<li>Cursos</li>
+			</ul>
+		</div>
 		<div class="row">
 			<div class="col-div-4-2" th:each="c:${cursos}">
 				<div class="card-action">

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,10 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
-import org.apache.tomcat.jni.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -34,19 +33,17 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ifrn.tcc.port.Models.Curso;
 import ifrn.tcc.port.Models.Material;
 import ifrn.tcc.port.Models.Modulo;
+import ifrn.tcc.port.Models.TiposU;
 import ifrn.tcc.port.Models.Usuario;
 import ifrn.tcc.port.repositories.CursoRepository;
 import ifrn.tcc.port.repositories.MaterialRepository;
 import ifrn.tcc.port.repositories.ModuloRepository;
+import ifrn.tcc.port.repositories.TiposURepository;
 import ifrn.tcc.port.repositories.UsuarioRepository;
 
 @Controller
 @RequestMapping("/portPlus")
 public class PortPlusController {
-	// relacionar dinamicamnete o user ao seu tipo
-	// no momento q finalizar o signup ja ficar logado no sistema
-	// foto no perfil
-	// pos login todas as pag(completa) fica como link
 
 //Caminho para salvar a logotipo do curso
 	private static String caminhologotipoCurso = "src/main/resources/static/Imagens/";
@@ -62,10 +59,26 @@ public class PortPlusController {
 
 	@Autowired
 	private UsuarioRepository ur;
+	@Autowired
+	private TiposURepository tr;
 
 //Cadastro
 	@PostMapping("/cadastrar")
-	public String CadastroU(Usuario usuario) {
+	public String CadastroU(Usuario usuario, BindingResult result, RedirectAttributes attributes) {
+		if (result.hasErrors()) {
+			attributes.addFlashAttribute("mensagem", "Os campos não podem ficar em branco");
+			return login(usuario);
+		}
+		ArrayList<TiposU> tiposU = new ArrayList<TiposU>();
+		if (usuario.getTipo() == 1) {
+			TiposU tipoU = tr.findByNome("ROLE_INSTRUTOR");
+			tiposU.add(tipoU);
+		}
+		if (usuario.getTipo() == 2) {
+			TiposU tipoU = tr.findByNome("ROLE_ALUNO");
+			tiposU.add(tipoU);
+		}
+		usuario.setTipos(tiposU);
 		usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha()));
 		ur.save(usuario);
 		return "redirect:/portPlus";
@@ -245,9 +258,8 @@ public class PortPlusController {
 			List<Material> materiais = mtr.findByModulo(modulo);
 			mtr.deleteAll(materiais);
 			mr.deleteById(idMod);
-		} else {
-			return "redirect:/portPlus/criarCurso/{idC}";
 		}
+
 		return "redirect:/portPlus/criarCurso/{idC}";
 	}
 
@@ -391,7 +403,7 @@ public class PortPlusController {
 				List<Material> materiais = mtr.findByModulo(modulo);
 				if (materiais.isEmpty()) {
 					attributes.addFlashAttribute("mensagem",
-							"Adicione no minimo um material no módulo: " + modulo.getTituloMod());
+							"Adicione no mínimo um material no módulo: " + modulo.getTituloMod());
 					return "redirect:/portPlus/criarCurso/{idC}";
 				}
 			}

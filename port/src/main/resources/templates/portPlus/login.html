@@ -7,8 +7,9 @@
 <link rel="stylesheet" href="/Styles/Stylee.css">
 <title>Port+</title>
 </head>
-<body class="login">
+<body class="login"><h3><a href="/"> < Voltar para página inicial</a></h3>
 	<div class="container-login">
+	
 		<div class="card-login">
 			<div class="inner-box-login" id="card">
 				<div class="card-front-login">
@@ -20,32 +21,36 @@
 							required><input type="hidden"
 							name="${_csrf.parameterName}" value="${_csrf.token}" />
 						<button type="submit" class="submit-btn-login" id="botao">Login</button>
-						<input type="checkbox"><span class="login">Manter-me
-							conectado</span>
+
 					</form>
-					<button type="button" class="btn-login"  onclick="openCadastrar()">Sou
+					<button type="button" class="btn-login" onclick="openCadastrar()">Sou
 						novo aqui</button>
-					<a href="">Esqueci a senha</a>
+					<!-- <a href="">Esqueci a senha</a> -->
 				</div>
 				<div class="card-back-login">
 					<h2>Cadastrar</h2>
 					<form th:action="@{/portPlus/cadastrar}" method="post"
 						th:object="${usuario}">
-						<input type="text" class="input-box-login" placeholder="Seu nome"
-							th:field="*{nome}" required> <input type="email"
-							class="input-box-login" placeholder="Email" th:field="*{email}"
-							required> <input type="password"
-							class="input-box-login" placeholder="Senha" th:field="*{senha}"
+						<p th:if="${mensagem}" th:text="$mensagem}"></p>
+						<div>
+						<legend> Cadastre-se como: </legend>
+						<input type="checkbox" th:field="*{tipo}" value="1"> <label>Instrutor</label>
+						&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+						<input
+							type="checkbox" th:field="*{tipo}" value="2" checked="checked">
+						<label>Aluno</label></div><input type="text" class="input-box-login"
+							placeholder="Seu nome" th:field="*{nome}" required> <input
+							type="email" class="input-box-login" placeholder="Email"
+							th:field="*{email}" required> <input type="password"
+							class="input-box-login" placeholder="Senha" min="6" th:field="*{senha}"
 							required>
 
-						<button type="submit"
-					name="action" class="submit-btn-login">Cadastrar</button>
-						<input type="checkbox"><span class="login">Manter-me
-							conectado</span>
+						<button type="submit" name="action" class="submit-btn-login">Cadastrar</button>
+
 					</form>
 					<button type="button" class="btn-login" onclick="openLogin()">Já
 						tenho uma conta</button>
-					<a href="">Esqueci a senha</a>
+
 				</div>
 			</div>
 		</div>
